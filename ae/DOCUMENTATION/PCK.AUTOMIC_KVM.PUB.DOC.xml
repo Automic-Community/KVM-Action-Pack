@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
+<DOCU name="PCK.AUTOMIC_KVM.PUB.DOC">
+<HEADER state="1">
+<Title>Package documentation</Title>
+<ArchiveKey1/>
+<ArchiveKey2/>
+<OH_SubType/>
+</HEADER>
+<DOCU_Docu state="1" type="text">
+<DOC><![CDATA[About the Package
+================================
+KVM (for Kernel-based Virtual Machine) is a full virtualization solution for Linux on x86 hardware containing virtualization extensions (Intel VT or AMD-V). It consists of a loadable kernel module, kvm.ko, that provides the core virtualization infrastructure and a processor specific module, kvm-intel.ko or kvm-amd.ko. Using KVM, one can run multiple virtual machines running unmodified Linux or Windows images. Each virtual machine has private virtualized hardware: a network card, disk, graphics adapter, etc.
+
+=Supported versions=
+XXX
+=Setup=
+The Agent must be installed on KVM enabled machine.
+=Setup= 
+* API version and https port can be configured in this VARA based on your environment.
+=Common Inputs=
+(None)
+=Actions=
+Following actions are supported.
+* Action name: 
+* Action Description: 
+
+]]></DOC>
+</DOCU_Docu>
+</DOCU>
+</uc-export>
