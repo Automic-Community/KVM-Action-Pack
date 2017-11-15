@@ -158,6 +158,11 @@
 
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.HEADER.EXECUTION
 
+! Status messages
+: SET &UC4RB_LOGGING_INFO# = "******** CLONE VM ACTION EXECUTED SUCCESSFULLY ********"
+: SET &UC4RB_LOGGING_ERROR# = "******** CLONE VM ACTION FAILED ********"
+
+!Prepare Command
 : SET &UC4RB_CMD# = "virt-clone --connect qemu:///system"
 
 !Original Guest
@@ -212,11 +217,35 @@
 
 :PRINT "Command Executed :: &UC4RB_CMD#"
 
-&UC4RB_CMD#
+output=`&UC4RB_CMD#`
 
-! Status messages
-: SET &UC4RB_LOGGING_INFO# = "******** CLONE VM ACTION EXECUTED SUCCESSFULLY ********"
-: SET &UC4RB_LOGGING_ERROR# = "******** CLONE VM ACTION FAILED ********"
+execcode=$?
+if [ "$execcode" -ne "0" ]
+then
+:   INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.ERROR
+    exit $execcode
+fi
+
+echo "$output"
+
+result=${output##*$'\n'}
+
+temp=`echo "$result" | awk  '{print $2}'`
+temp="${temp%\'}"
+newvm="${temp#\'}"
+
+temp=`virsh domiflist ${newvm}`
+temp=${temp##*$'\n'}
+
+mac=${temp##* }
+
+temp=`virsh domblklist ${newvm}`
+temp=`echo "$temp" | sed -n 3p`
+diskpath=${temp##* }
+
+echo "UC4RB_KVM_NAME::=$newvm"
+echo "UC4RB_KVM_MAC_ADDR::=$mac"
+echo "UC4RB_KVM_DISKFILE_PATH::=$diskpath"
 
 !------------------------------------------ Error Handling -----------------------------------------------------------------------------------------------------
 
@@ -230,9 +259,33 @@
 <LoginFsc/>
 </OUTPUTSCAN>
 <POST_SCRIPT mode="1" replacementmode="1" state="1">
-<OSCRI><![CDATA[:PUBLISH &UC4RB_KVM_NEW_NAME#,,"WORKFLOW"
-:PUBLISH &UC4RB_KVM_NEW_DSKFILE#,,"WORKFLOW"
-:PUBLISH &UC4RB_KVM_NEW_MAC_ADD#,,"WORKFLOW"]]></OSCRI>
+<OSCRI><![CDATA[:SET &STATUS# = GET_UC_OBJECT_STATUS(,,"RETCODE")
+:SET &UC4RB_KVM_NAME# = ""
+:SET &UC4RB_KVM_MAC_ADDR# = ""
+:SET &UC4RB_KVM_DISKFILE_PATH# = ""
+
+:IF &STATUS# EQ 0
+:    SET &HND# = PREP_PROCESS_REPORT("JOBS",, "REP","UC4RB_KVM_*","COL=DELIMITER", 'DELIMITER=*::=*')
+:    PROCESS &HND#
+:         SET &KEY# = GET_PROCESS_LINE(&HND#,1)
+:         SET &VALUE# = GET_PROCESS_LINE(&HND#,2)
+
+:         SWITCH &KEY#
+:             CASE "UC4RB_KVM_NAME"
+:                  SET &UC4RB_KVM_NAME# = "&VALUE#"
+:             CASE "UC4RB_KVM_MAC_ADDR"
+:                  SET &UC4RB_KVM_MAC_ADDR# = "&VALUE#"
+:             CASE "UC4RB_KVM_DISKFILE_PATH"
+:                  SET &UC4RB_KVM_DISKFILE_PATH# = "&VALUE#"
+:         ENDSWITCH
+
+:   ENDPROCESS
+:   CLOSE_PROCESS &HND#
+:ENDIF
+
+:PUBLISH &UC4RB_KVM_NAME#,,"WORKFLOW"
+:PUBLISH &UC4RB_KVM_MAC_ADDR#,,"WORKFLOW"
+:PUBLISH &UC4RB_KVM_DISKFILE_PATH#,,"WORKFLOW"]]></OSCRI>
 </POST_SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC/>

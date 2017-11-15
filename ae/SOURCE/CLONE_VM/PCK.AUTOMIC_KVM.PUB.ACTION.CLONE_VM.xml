@@ -330,17 +330,18 @@ Clone a VM from an existing VM. The source VM must be shut down for the clone op
 (none)
 
 = Inputs =
-* Original Guest					: Name of the original guest; The status must be shut off or paused. Eg. test-vm
+* Original Guest					: Name of the original guest. The status must be shut off or paused. Eg. test-vm
 * Original XML		                                : XML file to use as the original guest. Eg /lib/template.xml
 * Auto Clone			                        : Auto generate clone name and storage paths from the original guest configuration. E.g. Yes
 * New Name	                                        : Provide name for new VM. If provided Auto Clone input is ignored. Eg new-vm
-* New Diskfile			                        : Provide new file to use as the disk image for the new guest. If provided Auto Clone input is ignored. Eg /dev/testVM
+* New Diskfile			                        : Provide new file to use as the disk image for the new guest. If provided Auto Clone input is ignored. Eg /dev/testVM.qcow2
 * Preserve Data		                        : Do not clone storage, new disk images specified via New Diskfile are preserved unchanged. 
-* New MAC Address	                        : New fixed MAC address for the clone guest. If not provided then system assigns one of available MAC Addresses. Eg 01:23:45:67:89:ab	
+* New MAC Address	                        : New fixed MAC address for the clone guest. If not provided then system assigns one of available MAC Addresses. Eg 00:23:45:67:89:ab	
 * Replace                                                : Don't check name collision, overwrite any guest with the same name.	
 
 = Behavior =
 If Auto Clone is skipped both New Name and New Diskfile must be provided.
+If both Original Guest and Original XML are  provided then priority will be given to Original Guest.
 
 =Return Value=
 (none)
@@ -350,9 +351,9 @@ If Auto Clone is skipped both New Name and New Diskfile must be provided.
 * Return code is non-zero in case of failure.
 
 Following variables are published:
- New Name                     &UC4RB_KVM_NEW_NAME#
- New Diskfile                   &UC4RB_KVM_NEW_DSKFILE#
- New MAC Address        &UC4RB_KVM_NEW_MAC_ADD#
+ UC4RB_KVM_NAME                           : New Name                     
+ UC4RB_KVM_DISKFILE_PATH          : New Diskfile                  
+ UC4RB_KVM_MAC_ADDR                 : New MAC Address        
 
 = Rollback =
 (none)
