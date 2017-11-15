@@ -21,8 +21,8 @@ The Agent must be installed on KVM enabled machine.
 (None)
 =Actions=
 Following actions are supported.
-* Action name: 
-* Action Description: 
+* Action name: PCK.AUTOMIC_KVM.PUB.ACTION.LIST_VMS
+* Action Description: List VMs from an existing VM.
 
 ]]></DOC>
 </DOCU_Docu>
