@@ -12,19 +12,22 @@ Resource          ../../Resources/keywords.txt
 Resource          ../../Resources/variables.txt
 Resource          ../../Resources/actions.txt
 
-*** Test Cases ***    OK_NOK    Inactive_VMs      Type    Snapshot             State      Autostart    Managed_Save
+*** Test Cases ***    OK_NOK    Inactive_VMs      Type    Snapshot             State       Autostart    Managed_Save
 List All available VMS
                       [Tags]    main_scenarios
-                      OK        NO                All     All                  All        All          All
+                      OK        NO                All     All                  All         All          All
 
 List Only Inactive VMS
-                      OK        YES               All     All                  All        All          All
+                      OK        YES               All     All                  All         All          All
 
 List with snapshots VMS
-                      OK        No                All     Without Snapshots    All        All          All
+                      OK        NO                All     Without Snapshots    All         All          All
 
 List all VMs in running state
-                      OK        No                All     All                  Running    All          All
+                      OK        NO                All     All                  ${State}    All          All
+
+List all VMs in Paused state
+                      OK        NO                All     All                  Paused      All          All
 
 *** Keywords ***
 Startup
@@ -41,9 +44,9 @@ List KVM VMS Template
     ...    -${Inactive_VMs}: Specify whether if you want to list all VMs or only inactive ones.
     ...    -${Type}: Specify whether if you want to list VMs which are transient or persisted or all of them.
     ...    -${Snapshot}: Specify whether if you want to list VMs with snapshot or without snapshot or all of them.
-    ...    -${Autostart}: Specify whether if you want to list autostart enables VMs or autostart disabled VMs or all of them.
-    ...    -${Managed_Save}: e Specify whether if you want to list VMs with managed save or without managed save or all of them.
     ...    -${State}: Specify whether if you want to list all VMs or in specific state.
+    ...    -${Autostart}: Specify whether if you want to list autostart enables VMs or autostart disabled VMs or all of them.
+    ...    -${Managed_Save}: e Specify whether if you want to list VMs with managed save or without managed save or all of them
     Generate String
     Init Action    ${_LIST_KVM_VM_ACTION}
     Action Set    &UC4RB_KVM_LIST_INACTIVE_VMS#    ${Inactive_VMs}
