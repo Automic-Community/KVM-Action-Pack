@@ -235,11 +235,25 @@ temp="${temp%\'}"
 newvm="${temp#\'}"
 
 temp=`virsh domiflist ${newvm}`
+execcode=$?
+if [ "$execcode" -ne "0" ]
+then
+:   INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.ERROR
+    exit $execcode
+fi
+
 temp=${temp##*$'\n'}
 
 mac=${temp##* }
 
 temp=`virsh domblklist ${newvm}`
+execcode=$?
+if [ "$execcode" -ne "0" ]
+then
+:   INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.ERROR
+    exit $execcode
+fi
+
 temp=`echo "$temp" | sed -n 3p`
 diskpath=${temp##* }
 
