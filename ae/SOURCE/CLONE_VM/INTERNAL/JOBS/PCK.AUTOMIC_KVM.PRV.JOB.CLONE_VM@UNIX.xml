@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
 <JOBS_UNIX AttrType="UNIX" name="PCK.AUTOMIC_KVM.PRV.JOB.CLONE_VM@UNIX">
 <XHEADER state="1">
-<Title/>
+<Title>Clone VM</Title>
 <ArchiveKey1/>
 <ArchiveKey2/>
 <Active>1</Active>
@@ -301,8 +301,5 @@ echo "UC4RB_KVM_DISKFILE_PATH::=$diskpath"
 :PUBLISH &UC4RB_KVM_MAC_ADDR#,,"WORKFLOW"
 :PUBLISH &UC4RB_KVM_DISKFILE_PATH#,,"WORKFLOW"]]></OSCRI>
 </POST_SCRIPT>
-<DOCU_Docu state="1" type="text">
-<DOC/>
-</DOCU_Docu>
 </JOBS_UNIX>
 </uc-export>
