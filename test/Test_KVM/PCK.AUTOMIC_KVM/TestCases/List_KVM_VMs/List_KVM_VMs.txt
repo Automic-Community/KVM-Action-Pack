@@ -12,22 +12,22 @@ Resource          ../../Resources/keywords.txt
 Resource          ../../Resources/variables.txt
 Resource          ../../Resources/actions.txt
 
-*** Test Cases ***    OK_NOK    Inactive_VMs      Type    Snapshot             State       Autostart    Managed_Save
+*** Test Cases ***    OK_NOK    Inactive_VMs      Type      Snapshot       State             Autostart    Managed_Save
 List All available VMS
                       [Tags]    main_scenarios
-                      OK        NO                All     All                  All         All          All
+                      OK        NO                ${All}    ${All}         ${All}            ${All}       ${All}
 
 List Only Inactive VMS
-                      OK        YES               All     All                  All         All          All
+                      OK        YES               ${All}    ${All}         ${All}            ${All}       ${All}
 
 List with snapshots VMS
-                      OK        NO                All     Without Snapshots    All         All          All
+                      OK        NO                ${All}    ${Snapshot}    ${All}            ${All}       ${All}
 
 List all VMs in running state
-                      OK        NO                All     All                  ${State}    All          All
+                      OK        NO                ${All}    ${All}         ${State}          ${All}       ${All}
 
 List all VMs in Paused state
-                      OK        NO                All     All                  Paused      All          All
+                      OK        NO                ${All}    ${All}         ${StatePaused}    ${All}       ${All}
 
 *** Keywords ***
 Startup

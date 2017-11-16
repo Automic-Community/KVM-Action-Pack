@@ -6,3 +6,5 @@ Resource          ../../../Env/default.txt
 #----List KVM VMs------------------------------------------------------------------------------------
 ${Snapshot}       Without Snapshots
 ${State}          Running
+${All}            All
+${StatePaused}    Paused
