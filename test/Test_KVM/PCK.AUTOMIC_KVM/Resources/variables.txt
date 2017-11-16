@@ -1,0 +1,8 @@
+*** Settings ***
+Resource          ../../../Env/default.txt
+
+*** Variables ***
+#---- Promptset Fields --------------------------------------------------------------------------------------
+#----List KVM VMs------------------------------------------------------------------------------------
+${Snapshot}       Without Snapshots
+${State}          Running
