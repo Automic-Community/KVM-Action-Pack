@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
-<JOBS_UNIX AttrType="UNIX" name="PCK.AUTOMIC_KVM.JOB.LIST_VMS@UNIX">
+<JOBS_UNIX AttrType="UNIX" name="PCK.AUTOMIC_KVM.PRV.JOB.LIST_VMS@UNIX">
 <XHEADER state="1">
 <Title>List VMs</Title>
 <ArchiveKey1/>
@@ -47,7 +47,7 @@
 <ShellScript>1</ShellScript>
 <Command>0</Command>
 <Priority>0</Priority>
-<Shell/>
+<Shell>-bash</Shell>
 <ShellOptions/>
 <Com/>
 </ATTR_UNIX>
@@ -142,6 +142,10 @@
 
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.HEADER.EXECUTION
 
+! Status messages
+: SET &UC4RB_LOGGING_INFO# = "******** LIST VMS ACTION EXECUTED SUCCESSFULLY ********"
+: SET &UC4RB_LOGGING_ERROR# = "******** LIST VMS ACTION FAILED ********"
+
 : SET &UC4RB_KVM_CMD# = "virsh list"
 
 : IF &UC4RB_KVM_LIST_INACTIVE_VMS# = "YES"
@@ -194,6 +198,13 @@
 
 &UC4RB_KVM_CMD#
 
+execcode=$?
+if [ "$execcode" -ne "0" ]
+then
+:   INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.ERROR
+    exit $execcode
+fi
+
 output=`&UC4RB_KVM_CMD# --uuid`
 count=`&UC4RB_KVM_CMD# --uuid|wc -l`
 count=$((count-1))
@@ -201,10 +212,6 @@ output=`echo ${output} | tr ' ' ,`
 
 echo "UC4RB_KVM_VM_LIST::=$output"
 echo "UC4RB_KVM_VM_COUNT::=$count"
-
-! Status messages
-: SET &UC4RB_LOGGING_INFO# = "******** LIST VMS ACTION EXECUTED SUCCESSFULLY ********"
-: SET &UC4RB_LOGGING_ERROR# = "******** LIST VMS ACTION FAILED ********"
 
 !------------------------------------------ Error Handling -----------------------------------------------------------------------------------------------------
 
