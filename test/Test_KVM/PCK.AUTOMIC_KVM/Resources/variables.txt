@@ -8,3 +8,5 @@ ${Snapshot}       Without Snapshots
 ${State}          Running
 ${All}            All
 ${StatePaused}    Paused
+#-----Clone KVM VM------------------------------------------------------------------------------------------------
+${Original_Guest}    ABC_SKU
