@@ -25,6 +25,9 @@ Following actions are supported:
 * Action name:  PCK.AUTOMIC_KVM.PUB.ACTION.CLONE_VM
 * Action Description:  Clone a VM from an existing VM. 
 
+* Action name: PCK.AUTOMIC_KVM.PUB.ACTION.LIST_VMS
+* Action Description: List VMs from existing VM.
+
 ]]></DOC>
 </DOCU_Docu>
 </DOCU>

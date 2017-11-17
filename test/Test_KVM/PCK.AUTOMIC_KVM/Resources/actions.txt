@@ -1,0 +1,4 @@
+*** Variables ***
+#---- AE Actions-------------------------
+${_LIST_KVM_VM_ACTION}    PCK.AUTOMIC_KVM.PUB.ACTION.LIST_VMS
+${_CLONE_KVM_VM_ACTION}    PCK.AUTOMIC_KVM.PUB.ACTION.CLONE_VM
