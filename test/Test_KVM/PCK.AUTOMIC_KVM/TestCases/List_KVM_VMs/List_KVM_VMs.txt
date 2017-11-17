@@ -60,7 +60,7 @@ List KVM VMS Template
     Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE IF    '${OK_NOK}' == 'NOK'    Assert Failure
     Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Should Be Found    &UC4RB_KVM_VM_COUNT#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_KVM_VM_COUNT#
     Run Keyword If    '${OK_NOK}' == 'OK' and '&UC4RB_KVM_VM_COUNT#' > '0'    Action Object Variable Should Be Found    &UC4RB_KVM_VM_LIST#
-    Run Keyword If    '${OK_NOK}' == 'OK' and '&UC4RB_ZOS_COUNT#' == '0'    Action Object Variable Should Not Be Found    &UC4RB_KVM_VM_LIST#
+    Run Keyword If    '${OK_NOK}' == 'OK' and '&UC4RB_KVM_VM_COUNT#' == '0'    Action Object Variable Should Not Be Found    &UC4RB_KVM_VM_LIST#
 
 Teardown
     Log    *******End Test "LIST KVM VMs"*******
