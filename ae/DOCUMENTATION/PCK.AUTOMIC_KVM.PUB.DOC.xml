@@ -28,7 +28,8 @@ Following actions are supported:
 * Action name: PCK.AUTOMIC_KVM.PUB.ACTION.LIST_VMS
 * Action Description: List VMs from existing VM.
 
-]]></DOC>
+* Action name:  PCK.AUTOMIC_KVM.PUB.ACTION.GET_VM_INFO
+* Action Description:  Retrieves VM information.]]></DOC>
 </DOCU_Docu>
 </DOCU>
 </uc-export>
