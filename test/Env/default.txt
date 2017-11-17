@@ -3,8 +3,7 @@ Library           com.automic.robot.itpa.ItpaLibrary
 
 *** Variables ***
 #---- AE -------------------------
-#@{AE}            AUTOMIC    192.168.112.35    2217    1000/INTEGRATION/SPARTAN    test    # system, host, port, user, pass
-@{AE}             AUTOMIC    192.168.112.38    2217    100/RITESH1583/TEST    test    # system, host, port, user, pass
+@{AE}            AUTOMIC    192.168.112.35    2217    1000/INTEGRATION/SPARTAN    test    # system, host, port, user, pass
 #---- Promptset Overwrite Agent -------------------------------------------------------------------------
 @{Promptset_Overwrite_Agent_WIN}    AGENT_ZOS    LOGIN.WIN01
 @{Promptset_Overwrite_Agent_UNIX}    UNIX01    LOGIN.RITESH.ZOE
