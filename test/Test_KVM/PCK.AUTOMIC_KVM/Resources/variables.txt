@@ -8,3 +8,6 @@ ${Snapshot}       Without Snapshots
 ${State}          Running
 ${All}            All
 ${StatePaused}    Paused
+#----Get VM Info------------------------------------------------------------------------------------
+${VMName}         test-vm
+${UUID}           d48e874c-9863-4fe3-85e1-9398ac53f6b0
