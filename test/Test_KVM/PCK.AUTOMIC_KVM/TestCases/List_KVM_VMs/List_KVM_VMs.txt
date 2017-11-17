@@ -1,0 +1,66 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        list_KVM_VMS
+Default Tags
+Test Template     List KVM VMS Template
+Library           com.automic.robot.itpa.ItpaLibrary
+Library           String
+Library           DateTime
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
+*** Test Cases ***    OK_NOK    Inactive_VMs      Type      Snapshot       State             Autostart    Managed_Save
+List All available VMS
+                      [Tags]    main_scenarios
+                      OK        NO                ${All}    ${All}         ${All}            ${All}       ${All}
+
+List Only Inactive VMS
+                      OK        YES               ${All}    ${All}         ${All}            ${All}       ${All}
+
+List with snapshots VMS
+                      OK        NO                ${All}    ${Snapshot}    ${All}            ${All}       ${All}
+
+List all VMs in running state
+                      OK        NO                ${All}    ${All}         ${State}          ${All}       ${All}
+
+List all VMs in Paused state
+                      OK        NO                ${All}    ${All}         ${StatePaused}    ${All}       ${All}
+
+*** Keywords ***
+Startup
+    Log    *******Start Test "LIST KVM VMs"*******
+    Log    *******Connect to AE*******
+    Connect AE
+
+List KVM VMS Template
+    [Arguments]    ${OK_NOK}    ${Inactive_VMs}    ${Type}    ${Snapshot}    ${State}    ${Autostart}
+    ...    ${Managed_Save}
+    [Documentation]    This test List the jobs as per specified parameter value
+    ...    -Precondition: To run this test suite, Unix Agent is configured and running and credentials should be known to user.
+    ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
+    ...    -${Inactive_VMs}: Specify whether if you want to list all VMs or only inactive ones.
+    ...    -${Type}: Specify whether if you want to list VMs which are transient or persisted or all of them.
+    ...    -${Snapshot}: Specify whether if you want to list VMs with snapshot or without snapshot or all of them.
+    ...    -${State}: Specify whether if you want to list all VMs or in specific state.
+    ...    -${Autostart}: Specify whether if you want to list autostart enables VMs or autostart disabled VMs or all of them.
+    ...    -${Managed_Save}: e Specify whether if you want to list VMs with managed save or without managed save or all of them
+    Generate String
+    Init Action    ${_LIST_KVM_VM_ACTION}
+    Action Set    &UC4RB_KVM_LIST_INACTIVE_VMS#    ${Inactive_VMs}
+    Action Set    &UC4RB_KVM_TYPE#    ${Type}
+    Action Set    &UC4RB_KVM_SNAPSHOT#    ${Snapshot}
+    Action Set    &UC4RB_KVM_STATE#    ${State}
+    Action Set    &UC4RB_KVM_AUTOSTART#    ${Autostart}
+    Action Set    &UC4RB_KVM_MANAGED_SAVE#    ${Managed Save}
+    Set Overwrite Agent
+    Action Execute
+    Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE IF    '${OK_NOK}' == 'NOK'    Assert Failure
+    Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Should Be Found    &UC4RB_KVM_VM_COUNT#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_KVM_VM_COUNT#
+    Run Keyword If    '${OK_NOK}' == 'OK' and '&UC4RB_KVM_VM_COUNT#' > '0'    Action Object Variable Should Be Found    &UC4RB_KVM_VM_LIST#
+    Run Keyword If    '${OK_NOK}' == 'OK' and '&UC4RB_ZOS_COUNT#' == '0'    Action Object Variable Should Not Be Found    &UC4RB_KVM_VM_LIST#
+
+Teardown
+    Log    *******End Test "LIST KVM VMs"*******
