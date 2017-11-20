@@ -1,0 +1,52 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        get_vm_info
+Default Tags
+Test Template     Get_VM_Info_Template
+Library           com.automic.robot.itpa.ItpaLibrary
+Library           String
+Library           DateTime
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
+*** Test Cases ***    OK_NOK    VM_Name_or_UUID
+Get VM info with VM name
+                      OK        ${VMName}
+
+Get VM info with UUID
+                      OK        ${UUID}
+
+Get VM info with Invalid VM name
+                      NOK       Invalid
+
+Get VM info with Invalid UUID
+                      NOK       Invalid
+
+Get VM info with Mandatory VM name check
+                      NOK       ${EMPTY}
+
+*** Keywords ***
+Startup
+    Log    *******Start Test "GET VM INFO"*******
+    Log    *******Connect to AE*******
+    Connect AE
+
+Get_VM_Info_Template
+    [Arguments]    ${OK_NOK}    ${VM_Name_or_UUID}
+    [Documentation]    This test List the jobs as per specified parameter value
+    ...    -Precondition: To run this test suite, Unix Agent is configured and running and credentials should be known to user.
+    ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
+    ...    -${VM_Name_or_UUID}: Retrieves VM info using VM name or UUID.
+    Generate String
+    Init Action    ${_GET_VM_INFO_ACTION}
+    Run Keyword If    '${VM_Name_or_UUID}' == 'Invalid'    Action Set    &UC4RB_KVM_VM_NAME#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_KVM_VM_NAME#    ${VM_Name_or_UUID}
+	Action Execute
+    Set Overwrite Agent
+    Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE IF    '${OK_NOK}' == 'NOK'    Assert Failure
+
+Teardown
+    Log    *******End Test "GET VM INFO"*******

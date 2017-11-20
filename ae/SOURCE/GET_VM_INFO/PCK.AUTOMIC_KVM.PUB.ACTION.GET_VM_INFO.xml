@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
-<JOBP AllowExternal="1" name="PCK.AUTOMIC_KVM.PUB.ACTION.CLONE_VM">
+<JOBP AllowExternal="1" name="PCK.AUTOMIC_KVM.PUB.ACTION.GET_VM_INFO">
 <XHEADER state="1">
-<Title>Clone VM</Title>
+<Title>Get VM Info</Title>
 <ArchiveKey1/>
 <ArchiveKey2/>
 <Active>1</Active>
@@ -53,17 +53,10 @@
 <result ChkRExec="0" RElseHalt="0" RElseIgn="0" RElseJPAbend="0" RExecFlag="0" RExecute="" RRepMTimes="0" RRepOn="0" RRepWait="0" RWhen=""/>
 <dynvalues>
 <dyntree>
-<node content="1" id="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM" name="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM">
-<PRPTBOX promptset="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM">
-<UC4RB_KVM_AUTO_CLONEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_AUTO_CLONE#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM">NO</UC4RB_KVM_AUTO_CLONEs.00>
-<UC4RB_KVM_NEW_DSKFILEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_NEW_DSKFILE#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM"/>
-<UC4RB_KVM_NEW_MAC_ADDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_NEW_MAC_ADD#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM"/>
-<UC4RB_KVM_NEW_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_NEW_NAME#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM"/>
-<UC4RB_KVM_ORG_GUESTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_ORG_GUEST#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM"/>
-<UC4RB_KVM_ORG_XMLs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_ORG_XML#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM"/>
-<UC4RB_KVM_PRES_DATAs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_PRES_DATA#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM">NO</UC4RB_KVM_PRES_DATAs.00>
-<UC4RB_KVM_REPLACEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_REPLACE#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM">NO</UC4RB_KVM_REPLACEs.00>
+<node content="1" id="PCK.AUTOMIC_KVM.PRV.PROMPTSET.GET_VM_INFO" name="PCK.AUTOMIC_KVM.PRV.PROMPTSET.GET_VM_INFO" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_KVM.PRV.PROMPTSET.GET_VM_INFO">
+<PRPTBOX promptset="PCK.AUTOMIC_KVM.PRV.PROMPTSET.GET_VM_INFO">
+<UC4RB_KVM_VM_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_VM_NAME#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.GET_VM_INFO"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -79,8 +72,8 @@
 <node content="1" id="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
 <PRPTBOX promptset="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
-<AGENTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="AGENT#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;AGENT#</AGENTs.00>
-<LOGINs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="LOGIN#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;LOGIN#</LOGINs.00>
+<AGENTs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="AGENT#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;AGENT#</AGENTs.00>
+<LOGINs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="LOGIN#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;LOGIN#</LOGINs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -94,7 +87,7 @@
 </PostCon>
 </postconditions>
 </task>
-<task Alias="CLONE_VM" BranchType="0" Col="2" Lnr="2" OType="JOBS" Object="PCK.AUTOMIC_KVM.PRV.JOB.CLONE_VM@UNIX" ParentAlias="" ParentObject="" Row="1" Text2="">
+<task Alias="GET_VM_INFO" BranchType="0" Col="2" Lnr="2" OType="JOBS" Object="PCK.AUTOMIC_KVM.PRV.JOB.GET_VM_INFO@UNIX" ParentAlias="" ParentObject="" Row="1" Text2="">
 <checkpoint RollbackFlag="0" RunPerPatch="0" RunPerTarget="0" TcpADays="0" TcpATime="00:00" TcpATimeTZ="" TcpExecute="" TcpOn="0" promptatgen="0" showprompt="0"/>
 <after ActFlg="1" AtimOn="0" ErlstStDays="0" ErlstStTime="00:00" ErlstStTimeTZ="" HoldFlg="0"/>
 <when ChkWhenExec="0" LtstEnd="0" LtstEndDays="0" LtstEndTime="00:00" LtstSt="0" LtstStDays="0" LtstStTime="00:00" LtstTimeTZ="" WCTypeAND="1" WCTypeOR="0" WElseA="1" WElseH="0" WElseS="0" WElseX="0" WhenExecute="" WtimOn="0"/>
@@ -124,17 +117,10 @@
 </node>
 <node content="1" id="PRPTS" name="PromptSets" parent="" pref="1" type="PROMPTSET"/>
 <node content="0" id="PPRPTS" name="Parent PromptSets" parent="" type="PPROMPTSET"/>
-<node content="1" id="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM" name="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM">
-<PRPTBOX promptset="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM">
-<UC4RB_KVM_AUTO_CLONEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_AUTO_CLONE#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM">NO</UC4RB_KVM_AUTO_CLONEs.00>
-<UC4RB_KVM_NEW_DSKFILEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_NEW_DSKFILE#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM"/>
-<UC4RB_KVM_NEW_MAC_ADDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_NEW_MAC_ADD#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM"/>
-<UC4RB_KVM_NEW_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_NEW_NAME#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM"/>
-<UC4RB_KVM_ORG_GUESTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_ORG_GUEST#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM"/>
-<UC4RB_KVM_ORG_XMLs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_ORG_XML#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM"/>
-<UC4RB_KVM_PRES_DATAs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_PRES_DATA#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM">NO</UC4RB_KVM_PRES_DATAs.00>
-<UC4RB_KVM_REPLACEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_REPLACE#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM">NO</UC4RB_KVM_REPLACEs.00>
+<node content="1" id="PCK.AUTOMIC_KVM.PRV.PROMPTSET.GET_VM_INFO" name="PCK.AUTOMIC_KVM.PRV.PROMPTSET.GET_VM_INFO" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_KVM.PRV.PROMPTSET.GET_VM_INFO">
+<PRPTBOX promptset="PCK.AUTOMIC_KVM.PRV.PROMPTSET.GET_VM_INFO">
+<UC4RB_KVM_VM_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_VM_NAME#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.GET_VM_INFO"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -150,8 +136,8 @@
 <node content="1" id="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
 <PRPTBOX promptset="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
-<AGENTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="AGENT#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;AGENT#</AGENTs.00>
-<LOGINs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="LOGIN#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;LOGIN#</LOGINs.00>
+<AGENTs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="AGENT#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;AGENT#</AGENTs.00>
+<LOGINs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="LOGIN#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;LOGIN#</LOGINs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -181,17 +167,10 @@
 <result ChkRExec="0" RElseHalt="0" RElseIgn="0" RElseJPAbend="0" RExecFlag="0" RExecute="" RRepMTimes="0" RRepOn="0" RRepWait="0" RWhen=""/>
 <dynvalues>
 <dyntree>
-<node content="1" id="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM" name="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM">
-<PRPTBOX promptset="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM">
-<UC4RB_KVM_AUTO_CLONEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_AUTO_CLONE#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM">NO</UC4RB_KVM_AUTO_CLONEs.00>
-<UC4RB_KVM_NEW_DSKFILEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_NEW_DSKFILE#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM"/>
-<UC4RB_KVM_NEW_MAC_ADDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_NEW_MAC_ADD#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM"/>
-<UC4RB_KVM_NEW_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_NEW_NAME#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM"/>
-<UC4RB_KVM_ORG_GUESTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_ORG_GUEST#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM"/>
-<UC4RB_KVM_ORG_XMLs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_ORG_XML#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM"/>
-<UC4RB_KVM_PRES_DATAs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_PRES_DATA#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM">NO</UC4RB_KVM_PRES_DATAs.00>
-<UC4RB_KVM_REPLACEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_REPLACE#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM">NO</UC4RB_KVM_REPLACEs.00>
+<node content="1" id="PCK.AUTOMIC_KVM.PRV.PROMPTSET.GET_VM_INFO" name="PCK.AUTOMIC_KVM.PRV.PROMPTSET.GET_VM_INFO" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_KVM.PRV.PROMPTSET.GET_VM_INFO">
+<PRPTBOX promptset="PCK.AUTOMIC_KVM.PRV.PROMPTSET.GET_VM_INFO">
+<UC4RB_KVM_VM_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_VM_NAME#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.GET_VM_INFO"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -207,8 +186,8 @@
 <node content="1" id="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
 <PRPTBOX promptset="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
-<AGENTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="AGENT#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;AGENT#</AGENTs.00>
-<LOGINs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="LOGIN#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;LOGIN#</LOGINs.00>
+<AGENTs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="AGENT#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;AGENT#</AGENTs.00>
+<LOGINs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="LOGIN#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;LOGIN#</LOGINs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -267,17 +246,10 @@
 <Mode>1</Mode>
 </VALUE>
 </node>
-<node content="1" id="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM" name="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM" parent="PRPTS" type="PROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM" ontop="1">
-<PRPTBOX promptset="PCK.AUTOMIC_KVM.PRV.PROMPTSET.CLONE_VM" prptmode="1">
-<UC4RB_KVM_ORG_GUESTs.00 altview="0" haslist="0"/>
-<UC4RB_KVM_ORG_XMLs.00 altview="0" haslist="0"/>
-<UC4RB_KVM_AUTO_CLONEs.00 altview="0" haslist="0">NO</UC4RB_KVM_AUTO_CLONEs.00>
-<UC4RB_KVM_NEW_NAMEs.00 altview="0" haslist="0"/>
-<UC4RB_KVM_NEW_DSKFILEs.00 altview="0" haslist="0"/>
-<UC4RB_KVM_PRES_DATAs.00 altview="0" haslist="0">NO</UC4RB_KVM_PRES_DATAs.00>
-<UC4RB_KVM_NEW_MAC_ADDs.00 altview="0" haslist="0"/>
-<UC4RB_KVM_REPLACEs.00 altview="0" haslist="0">NO</UC4RB_KVM_REPLACEs.00>
+<node content="1" id="PCK.AUTOMIC_KVM.PRV.PROMPTSET.GET_VM_INFO" name="PCK.AUTOMIC_KVM.PRV.PROMPTSET.GET_VM_INFO" parent="PRPTS" type="PROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_KVM.PRV.PROMPTSET.GET_VM_INFO" ontop="1">
+<PRPTBOX promptset="PCK.AUTOMIC_KVM.PRV.PROMPTSET.GET_VM_INFO" prptmode="1">
+<UC4RB_KVM_VM_NAMEs.00 altview="0" haslist="0"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -293,8 +265,8 @@
 <node content="1" id="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" parent="PRPTS" type="PROMPTSET">
 <PROMPTSET name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" ontop="1">
 <PRPTBOX promptset="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" prptmode="1">
-<AGENTs.00 altview="0" haslist="0">&amp;AGENT#</AGENTs.00>
-<LOGINs.00 altview="0" haslist="0">&amp;LOGIN#</LOGINs.00>
+<AGENTs.00 altview="1" haslist="0">&amp;AGENT#</AGENTs.00>
+<LOGINs.00 altview="1" haslist="0">&amp;LOGIN#</LOGINs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -321,27 +293,18 @@
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC><![CDATA[= Action name =
-PCK.AUTOMIC_KVM.PUB.ACTION.CLONE_VM
+PCK.AUTOMIC_KVM.PUB.ACTION.GET_VM_INFO
 
 = General description =
-Clone a VM from an existing VM. The source VM must be shut down for the clone operation to run.
+Returns the basic information of an existing VM.
 
 = Failure Conditions =
 (none)
 
 = Inputs =
-* Original Guest					: Name of the original guest. The status must be shut off or paused. Eg. test-vm
-* Original XML		                                : XML file to use as the original guest. Eg /lib/template.xml
-* Auto Clone			                        : Auto generate clone name and storage paths from the original guest configuration. E.g. Yes
-* New Name	                                        : Provide name for new VM. If provided Auto Clone input is ignored. Eg new-vm
-* New Diskfile			                        : Provide new file to use as the disk image for the new guest. If provided Auto Clone input is ignored. Eg /dev/testVM.qcow2
-* Preserve Data		                        : Do not clone storage, new disk images specified via New Diskfile are preserved unchanged. 
-* New MAC Address	                        : New fixed MAC address for the clone guest. If not provided then system assigns one of available MAC Addresses. Eg 00:23:45:67:89:ab	
-* Replace                                                : Don't check name collision, overwrite any guest with the same name.	
+* VM Name or UUID				: Provide exact name or UUID of the VM. Eg. test-vm
 
 = Behavior =
-If Auto Clone is skipped both New Name and New Diskfile must be provided.
-If both Original Guest and Original XML are  provided then priority will be given to Original Guest.
 
 =Return Value=
 (none)
@@ -349,11 +312,6 @@ If both Original Guest and Original XML are  provided then priority will be give
 = Outputs =
 * Return code is 0 in case of success.
 * Return code is non-zero in case of failure.
-
-Following variables are published:
- UC4RB_KVM_NAME                           : New Name                     
- UC4RB_KVM_DISKFILE_PATH          : New Diskfile                  
- UC4RB_KVM_MAC_ADDR                 : New MAC Address        
 
 = Rollback =
 (none)
