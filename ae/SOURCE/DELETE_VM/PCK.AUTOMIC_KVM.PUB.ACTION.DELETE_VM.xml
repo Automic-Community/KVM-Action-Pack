@@ -57,7 +57,7 @@
 <PROMPTSET name="PCK.AUTOMIC_KVM.PRV.PROMPTSET.DELETE_VM">
 <PRPTBOX promptset="PCK.AUTOMIC_KVM.PRV.PROMPTSET.DELETE_VM">
 <UC4RB_KVM_MANAGED_SAVEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_MANAGED_SAVE#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.DELETE_VM">NO</UC4RB_KVM_MANAGED_SAVEs.00>
-<UC4RB_KVM_NVRAMs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_NVRAM#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.DELETE_VM"/>
+<UC4RB_KVM_NVRAMs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_NVRAM#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.DELETE_VM">NO</UC4RB_KVM_NVRAMs.00>
 <UC4RB_KVM_REMOVE_ALL_STORAGEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_REMOVE_ALL_STORAGE#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.DELETE_VM">NO</UC4RB_KVM_REMOVE_ALL_STORAGEs.00>
 <UC4RB_KVM_SNAPSHOT_METADATAs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_SNAPSHOT_METADATA#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.DELETE_VM">NO</UC4RB_KVM_SNAPSHOT_METADATAs.00>
 <UC4RB_KVM_STORAGE_VOLUMESs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_STORAGE_VOLUMES#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.DELETE_VM"/>
@@ -78,8 +78,8 @@
 <node content="1" id="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
 <PRPTBOX promptset="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
-<AGENTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="AGENT#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;AGENT#</AGENTs.00>
-<LOGINs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="LOGIN#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;LOGIN#</LOGINs.00>
+<AGENTs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="AGENT#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;AGENT#</AGENTs.00>
+<LOGINs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="LOGIN#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;LOGIN#</LOGINs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -93,7 +93,7 @@
 </PostCon>
 </postconditions>
 </task>
-<task Alias="" BranchType="0" Col="2" Lnr="2" OType="JOBS" Object="PCK.AUTOMIC_KVM.PRV.JOB.DELETE_VM@UNIX" ParentAlias="" ParentObject="" Row="1" Text2="">
+<task Alias="DELETE_VM" BranchType="0" Col="2" Lnr="2" OType="JOBS" Object="PCK.AUTOMIC_KVM.PRV.JOB.DELETE_VM@UNIX" ParentAlias="" ParentObject="" Row="1" Text2="">
 <checkpoint RollbackFlag="0" RunPerPatch="0" RunPerTarget="0" TcpADays="0" TcpATime="00:00" TcpATimeTZ="" TcpExecute="" TcpOn="0" promptatgen="0" showprompt="0"/>
 <after ActFlg="1" AtimOn="0" ErlstStDays="0" ErlstStTime="00:00" ErlstStTimeTZ="" HoldFlg="0"/>
 <when ChkWhenExec="0" LtstEnd="0" LtstEndDays="0" LtstEndTime="00:00" LtstSt="0" LtstStDays="0" LtstStTime="00:00" LtstTimeTZ="" WCTypeAND="1" WCTypeOR="0" WElseA="1" WElseH="0" WElseS="0" WElseX="0" WhenExecute="" WtimOn="0"/>
@@ -127,7 +127,7 @@
 <PROMPTSET name="PCK.AUTOMIC_KVM.PRV.PROMPTSET.DELETE_VM">
 <PRPTBOX promptset="PCK.AUTOMIC_KVM.PRV.PROMPTSET.DELETE_VM">
 <UC4RB_KVM_MANAGED_SAVEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_MANAGED_SAVE#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.DELETE_VM">NO</UC4RB_KVM_MANAGED_SAVEs.00>
-<UC4RB_KVM_NVRAMs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_NVRAM#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.DELETE_VM"/>
+<UC4RB_KVM_NVRAMs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_NVRAM#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.DELETE_VM">NO</UC4RB_KVM_NVRAMs.00>
 <UC4RB_KVM_REMOVE_ALL_STORAGEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_REMOVE_ALL_STORAGE#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.DELETE_VM">NO</UC4RB_KVM_REMOVE_ALL_STORAGEs.00>
 <UC4RB_KVM_SNAPSHOT_METADATAs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_SNAPSHOT_METADATA#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.DELETE_VM">NO</UC4RB_KVM_SNAPSHOT_METADATAs.00>
 <UC4RB_KVM_STORAGE_VOLUMESs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_STORAGE_VOLUMES#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.DELETE_VM"/>
@@ -148,8 +148,8 @@
 <node content="1" id="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
 <PRPTBOX promptset="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
-<AGENTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="AGENT#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;AGENT#</AGENTs.00>
-<LOGINs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="LOGIN#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;LOGIN#</LOGINs.00>
+<AGENTs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="AGENT#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;AGENT#</AGENTs.00>
+<LOGINs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="LOGIN#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;LOGIN#</LOGINs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -183,7 +183,7 @@
 <PROMPTSET name="PCK.AUTOMIC_KVM.PRV.PROMPTSET.DELETE_VM">
 <PRPTBOX promptset="PCK.AUTOMIC_KVM.PRV.PROMPTSET.DELETE_VM">
 <UC4RB_KVM_MANAGED_SAVEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_MANAGED_SAVE#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.DELETE_VM">NO</UC4RB_KVM_MANAGED_SAVEs.00>
-<UC4RB_KVM_NVRAMs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_NVRAM#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.DELETE_VM"/>
+<UC4RB_KVM_NVRAMs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_NVRAM#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.DELETE_VM">NO</UC4RB_KVM_NVRAMs.00>
 <UC4RB_KVM_REMOVE_ALL_STORAGEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_REMOVE_ALL_STORAGE#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.DELETE_VM">NO</UC4RB_KVM_REMOVE_ALL_STORAGEs.00>
 <UC4RB_KVM_SNAPSHOT_METADATAs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_SNAPSHOT_METADATA#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.DELETE_VM">NO</UC4RB_KVM_SNAPSHOT_METADATAs.00>
 <UC4RB_KVM_STORAGE_VOLUMESs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_STORAGE_VOLUMES#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.DELETE_VM"/>
@@ -204,8 +204,8 @@
 <node content="1" id="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
 <PRPTBOX promptset="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
-<AGENTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="AGENT#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;AGENT#</AGENTs.00>
-<LOGINs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="LOGIN#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;LOGIN#</LOGINs.00>
+<AGENTs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="AGENT#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;AGENT#</AGENTs.00>
+<LOGINs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="LOGIN#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;LOGIN#</LOGINs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -273,6 +273,7 @@
 <UC4RB_KVM_STORAGE_VOLUMESs.00 altview="0" haslist="0"/>
 <UC4RB_KVM_WIPE_STORAGEs.00 altview="0" haslist="0">NO</UC4RB_KVM_WIPE_STORAGEs.00>
 <UC4RB_KVM_SNAPSHOT_METADATAs.00 altview="0" haslist="0">NO</UC4RB_KVM_SNAPSHOT_METADATAs.00>
+<UC4RB_KVM_NVRAMs.00 altview="0" haslist="0">NO</UC4RB_KVM_NVRAMs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -288,8 +289,8 @@
 <node content="1" id="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" parent="PRPTS" type="PROMPTSET">
 <PROMPTSET name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" ontop="1">
 <PRPTBOX promptset="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" prptmode="1">
-<AGENTs.00 altview="0" haslist="0">&amp;AGENT#</AGENTs.00>
-<LOGINs.00 altview="0" haslist="0">&amp;LOGIN#</LOGINs.00>
+<AGENTs.00 altview="1" haslist="0">&amp;AGENT#</AGENTs.00>
+<LOGINs.00 altview="1" haslist="0">&amp;LOGIN#</LOGINs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
