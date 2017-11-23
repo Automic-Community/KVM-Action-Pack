@@ -18,15 +18,15 @@ Reset available VM with valid VM_Name
                       OK        new-vm-clone1
 
 Reset available VM with valid UUID
-                      OK        fb0b9f26-53b5-46fa-8619-0d388fc3e7aa
+                      OK        efdc81e3-2e41-4493-a83b-b536c60807b8
 
 Reset VM by Empty VM name
                       NOK       ${EMPTY}
 
 Reset VM by Invalid VM name
-                      NOK       Invalid_vm
+                      NOK       Invalid
 
-Resest VM with Invalid UUID
+Reset VM with Invalid UUID
                       NOK       ${UUID}
 
 *** Keywords ***
@@ -43,7 +43,8 @@ Reset KVM VMS Template
     ...    -${VM_Name/UUID}: Specify name or UUID of VM you want to reset
     Generate String
     Init Action    ${_RESET_KVM_VM_ACTION}
-    Action Set    &UC4RB_KVM_VM_NAME_UUID#    ${VM_Name/UUID}
+    Run Keyword If    '${VM_Name/UUID}' == 'Invalid'    Action Set    &UC4RB_KVM_VM_NAME_UUID#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_KVM_VM_NAME_UUID#    ${VM_Name/UUID}
     Set Overwrite Agent
     Action Execute
     Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE IF    '${OK_NOK}' == 'NOK'    Assert Failure
