@@ -18,7 +18,7 @@ Reset available VM with valid VM_Name
                       OK        new-vm-clone1
 
 Reset available VM with valid UUID
-                      OK        ${UUID}
+                      OK        fb0b9f26-53b5-46fa-8619-0d388fc3e7aa
 
 Reset VM by Empty VM name
                       NOK       ${EMPTY}
