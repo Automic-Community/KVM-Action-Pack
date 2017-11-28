@@ -310,7 +310,7 @@ Reboot VM from existing VMs.
 * Shutdown Mode				: Specify the shutdown mode for reboot operation. Eg: acpi
 
 = Behavior =
-(none)
+Provide VM should be in running state.
 
 =Return Value=
 (none)
