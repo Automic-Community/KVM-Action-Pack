@@ -47,7 +47,7 @@
 <ShellScript>1</ShellScript>
 <Command>0</Command>
 <Priority>0</Priority>
-<Shell/>
+<Shell>-bash</Shell>
 <ShellOptions/>
 <Com/>
 </ATTR_UNIX>
@@ -117,7 +117,7 @@
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.HEADER.EXECUTION
 
 !Prepare Command
-: SET &UC4RB_CMD# = "virsh reset "
+: SET &UC4RB_CMD# = "virsh reset"
 
 !VM name or UUID
 : SET &UC4RB_ESCAPED_STRING# = &UC4RB_KVM_VM_NAME_UUID#
