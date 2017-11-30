@@ -335,7 +335,7 @@ Create a new VM.
 
 = Inputs =
 * VM Name				: Provide name of VM you want to create. E.g. test-vm
-* OS Type				: Type of the operating system to be created. If empty KVM will try to identify from image.
+* OS Type				: Type of the operating system to be created. If empty KVM will try to identify from image. E.g. Linux
 * Description				: Provide short description to new VM.
 * Memory (MB)			: Memory to allocate for guest instance in megabytes. E.g. 512
 * CPUs					: Number of virtual CPUs to configure for the guest. E.g. 2
