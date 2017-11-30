@@ -56,7 +56,7 @@
 <node content="1" id="PCK.AUTOMIC_KVM.PRV.PROMPTSET.REBOOT_VM" name="PCK.AUTOMIC_KVM.PRV.PROMPTSET.REBOOT_VM" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.AUTOMIC_KVM.PRV.PROMPTSET.REBOOT_VM">
 <PRPTBOX promptset="PCK.AUTOMIC_KVM.PRV.PROMPTSET.REBOOT_VM">
-<UC4RB_KVM_SHUTDOWN_MODEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_SHUTDOWN_MODE#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.REBOOT_VM">Not specified</UC4RB_KVM_SHUTDOWN_MODEs.00>
+<UC4RB_KVM_SHUTDOWN_MODEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_SHUTDOWN_MODE#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.REBOOT_VM"/>
 <UC4RB_KVM_VM_NAME_UUIDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_VM_NAME_UUID#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.REBOOT_VM"/>
 </PRPTBOX>
 </PROMPTSET>
@@ -121,7 +121,7 @@
 <node content="1" id="PCK.AUTOMIC_KVM.PRV.PROMPTSET.REBOOT_VM" name="PCK.AUTOMIC_KVM.PRV.PROMPTSET.REBOOT_VM" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.AUTOMIC_KVM.PRV.PROMPTSET.REBOOT_VM">
 <PRPTBOX promptset="PCK.AUTOMIC_KVM.PRV.PROMPTSET.REBOOT_VM">
-<UC4RB_KVM_SHUTDOWN_MODEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_SHUTDOWN_MODE#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.REBOOT_VM">Not specified</UC4RB_KVM_SHUTDOWN_MODEs.00>
+<UC4RB_KVM_SHUTDOWN_MODEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_SHUTDOWN_MODE#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.REBOOT_VM"/>
 <UC4RB_KVM_VM_NAME_UUIDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_VM_NAME_UUID#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.REBOOT_VM"/>
 </PRPTBOX>
 </PROMPTSET>
@@ -172,7 +172,7 @@
 <node content="1" id="PCK.AUTOMIC_KVM.PRV.PROMPTSET.REBOOT_VM" name="PCK.AUTOMIC_KVM.PRV.PROMPTSET.REBOOT_VM" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.AUTOMIC_KVM.PRV.PROMPTSET.REBOOT_VM">
 <PRPTBOX promptset="PCK.AUTOMIC_KVM.PRV.PROMPTSET.REBOOT_VM">
-<UC4RB_KVM_SHUTDOWN_MODEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_SHUTDOWN_MODE#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.REBOOT_VM">Not specified</UC4RB_KVM_SHUTDOWN_MODEs.00>
+<UC4RB_KVM_SHUTDOWN_MODEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_SHUTDOWN_MODE#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.REBOOT_VM"/>
 <UC4RB_KVM_VM_NAME_UUIDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_VM_NAME_UUID#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.REBOOT_VM"/>
 </PRPTBOX>
 </PROMPTSET>
@@ -253,7 +253,7 @@
 <PROMPTSET name="PCK.AUTOMIC_KVM.PRV.PROMPTSET.REBOOT_VM" ontop="1">
 <PRPTBOX promptset="PCK.AUTOMIC_KVM.PRV.PROMPTSET.REBOOT_VM" prptmode="1">
 <UC4RB_KVM_VM_NAME_UUIDs.00 altview="0" haslist="0"/>
-<UC4RB_KVM_SHUTDOWN_MODEs.00 altview="0" haslist="0">Not specified</UC4RB_KVM_SHUTDOWN_MODEs.00>
+<UC4RB_KVM_SHUTDOWN_MODEs.00 altview="0" haslist="0"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>

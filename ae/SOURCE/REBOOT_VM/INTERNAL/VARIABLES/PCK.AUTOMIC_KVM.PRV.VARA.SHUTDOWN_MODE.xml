@@ -26,7 +26,7 @@
 <Variables>
 <row Name="acpi" Value="acpi" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="agent" Value="agent" Value1="" Value2="" Value3="" Value4=""/>
-<row Name="empty" Value="Not specified" Value1="" Value2="" Value3="" Value4=""/>
+<row Name="empty" Value="" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="initctl" Value="initctl" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="paravirt" Value="paravirt" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="signal" Value="signal" Value1="" Value2="" Value3="" Value4=""/>
