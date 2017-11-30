@@ -241,7 +241,7 @@ echo "UC4RB_KVM_VM_ID::=$output"
 
 : SET &UC4RB_KVM_CMD# = STR_CAT(&UC4RB_KVM_CMD#, " &UC4RB_VM_NAME#")
 
-:PRINT "Created VM info"
+echo "Created VM info"
 
 &UC4RB_KVM_CMD#
 
