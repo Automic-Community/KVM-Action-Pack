@@ -12,33 +12,22 @@ Resource          ../../Resources/keywords.txt
 Resource          ../../Resources/variables.txt
 Resource          ../../Resources/actions.txt
 
-*** Test Cases ***    OK_NOK    VM_Name/UUID      Shutdown_Mode
+*** Test Cases ***    OK_NOK    VM_Name/UUID         Shutdown_Mode
 Reboot available VM with valid VM_Name and default shutdown mode
                       [Tags]    main_scenarios
-                      OK        new-vm-clone1     ${Default_Mode}
-
-Reboot available VM with valid VM_Name and no default shutdown mode
-                      [Tags]    main_scenarios
-                      OK        new-vm-clone2     initctl
-
-Reboot available VM with valid VM_Name and no shutdown mode
-                      [Tags]    main_scenarios
-                      OK        new-vm-clone3     ${EMPTY}
+                      OK        ${VMName}            ${Empty}
 
 Reboot available VM with valid UUID
-                      OK        ${UUID}           acpi
+                      OK        ${UUID}              ${Empty}
 
-Reboot VM by Empty VM name
-                      NOK       ${EMPTY}          ${Default_Mode}
+Mandatory assertion for VM name/UUID
+                      NOK       ${EMPTY}             ${Empty}
 
-Reboot VM by Invalid VM name
-                      NOK       Invalid_vm        ${Default_Mode}
+Reboot VM by Invalid VM name/UUID
+                      NOK       Invalid              ${Empty}
 
-Reboot VM with Invalid UUID
-                      NOK       ${UUID}           signal
-
-Reboot VM with Valid VM name and shutdown mode paravirt
-                      OK        new-vm-clone1     paravirt
+Reboot VM which is shutoff
+                      NOK       ${Shutoff_VMName}    ${Empty}
 
 *** Keywords ***
 Startup
@@ -49,14 +38,15 @@ Startup
 Reboot KVM VMS Template
     [Arguments]    ${OK_NOK}    ${VM_Name/UUID}    ${Shutdown_Mode}
     [Documentation]    This test reboot a VM as per specified parameter value
-    ...    _Precondition :- To run this test suit Unix Agent is configured and running and atleast on VM should be there to reboot
+    ...    _Precondition :- To run this test suit Unix Agent is configured and running and atleast on VM should be running to reboot
     ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
     ...    -${VM_Name/UUID}: Specify name or UUID of VM you want to reset
     ...    -${Shutdown_Mode}: Specify shutdown mode for reboot operation.
     Generate String
     Init Action    ${_REBOOT_KVM_VM_ACTION}
-    Action Set    &UC4RB_KVM_VM_NAME_UUID#    ${VM_Name/UUID}
-    Action Set    &UC4RB_KVM_SHUTDOWN_MODE    ${Shutdown_Mode}
+    Run Keyword If    '${VM_Name/UUID}' == 'Invalid'    Action Set    &UC4RB_KVM_VM_NAME_UUID#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_KVM_VM_NAME_UUID#    ${VM_Name/UUID}
+    Action Set    &UC4RB_KVM_SHUTDOWN_MODE#    ${Shutdown_Mode}
     Set Overwrite Agent
     Action Execute
     Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE IF    '${OK_NOK}' == 'NOK'    Assert Failure
