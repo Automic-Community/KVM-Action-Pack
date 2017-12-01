@@ -30,7 +30,7 @@ Asserting Mandatory field Image Location
                       NOK       ${My_New_VM}      ${EMPTY}    ${EMPTY}       512       1       ${Disk_Path}    1            ${EMPTY}             ${EMPTY}
 
 Invalid Disk path test
-                      NOK       ${My_New_VM}      ${EMPTY}    ${EMPTY}       512       1       Invalid         1            ${EMPTY}             ${EMPTY}
+                      NOK       ${My_New_VM}      ${EMPTY}    ${EMPTY}       512       1       Invalid         1            ${Image_Location}    ${EMPTY}
 
 Invalid Image Location test
                       NOK       ${My_New_VM}      ${EMPTY}    ${EMPTY}       512       1       ${Disk_Path}    1            Invalid              ${EMPTY}
@@ -72,6 +72,8 @@ Create_KVM_VMS Template
     Set Overwrite Agent
     Action Execute
     Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE IF    '${OK_NOK}' == 'NOK'    Assert Failure
+    Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable VM ID Should Be Found    &UC4RB_KVM_VM_ID#    ELSE    Action Object Variable    VM ID Should Not Be Found
+    ...    &UC4RB_KVM_VM_ID#
 
 Teardown
     Log    *******End Test "CREATE KVM VMS"*******
