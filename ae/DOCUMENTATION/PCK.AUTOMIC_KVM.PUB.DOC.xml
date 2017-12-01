@@ -34,6 +34,12 @@ Following actions are supported.
 * Action name:  PCK.AUTOMIC_KVM.PUB.ACTION.GET_VM_INFO
 * Action Description:  Retrieves VM information.
 
+* Action name:  PCK.AUTOMIC_KVM.PUB.ACTION.REBOOT_VM
+* Action Description:  Reboot VM from existing VMs.
+
+* Action name:  PCK.AUTOMIC_KVM.PUB.ACTION.CREATE_VM
+* Action Description:  Create a new VM.
+
 * Action name:   PCK.AUTOMIC_KVM.PUB.ACTION.RESET_VM
 * Action Description:  Reset a vm immediately without any guest shutdown.]]></DOC>
 </DOCU_Docu>
