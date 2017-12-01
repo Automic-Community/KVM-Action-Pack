@@ -11,29 +11,29 @@ Resource          ../../Resources/keywords.txt
 Resource          ../../Resources/variables.txt
 Resource          ../../Resources/actions.txt
 
-*** Test Cases ***    OK_NOK    VM_Name           OS_Type     Description    Memory                CPUs                    Disk_Path    Disk_Size    Image_Location    Configuration
+*** Test Cases ***    OK_NOK    VM_Name           OS_Type     Description    Memory    CPUs    Disk_Path       Disk_Size    Image_Location       Configuration
 Valid Test to Create KVM VM with default value
                       [Tags]    main_scenarios
-                      OK        ${My_New_VM}      ${EMPTY}    ${EMPTY}       512 2 ${Disk_Path}    10 ${Image_Location}    ${EMPTY}
+                      OK        ${My_New_VM}      ${EMPTY}    ${EMPTY}       512       1       ${Disk_Path}    1            ${Image_Location}    ${EMPTY}
 
 Invalid test to create KVM VM with already existing VM name
                       [Tags]    main_scenarios
-                      NOK       ${VM_Name}        ${EMPTY}    ${EMPTY}       512 2 ${Disk_Path}    10 ${Image_Location}    ${EMPTY}
+                      NOK       ${VM_Name}        ${EMPTY}    ${EMPTY}       512       1       ${Disk_Path}    1            ${Image_Location}    ${EMPTY}
 
-Mandatory field VM Name Test
-                      NOK       ${EMPTY}          ${EMPTY}    ${EMPTY}       512 2 ${Disk_Path}    10 ${Image_Location}    ${EMPTY}
+Asserting Mandatory field VM Name
+                      NOK       ${EMPTY}          ${EMPTY}    ${EMPTY}       512       1       ${Disk_Path}    1            ${Image_Location}    ${EMPTY}
 
-Mandatory field Disk Path Test
-                      NOK       ${My_New_VM}      ${EMPTY}    ${EMPTY}       512 2 ${EMPTY}        10 ${Image_Location}    ${EMPTY}
+Asserting Mandatory field Disk Path
+                      NOK       ${My_New_VM}      ${EMPTY}    ${EMPTY}       512       1       ${EMPTY}        1            ${Image_Location}    ${EMPTY}
 
-Mandatory field Image Location Test
-                      NOK       ${My_New_VM}      ${EMPTY}    ${EMPTY}       512 2 ${Disk_Path}    10 ${EMPTY}             ${EMPTY}
+Asserting Mandatory field Image Location
+                      NOK       ${My_New_VM}      ${EMPTY}    ${EMPTY}       512       1       ${Disk_Path}    1            ${EMPTY}             ${EMPTY}
 
 Invalid Disk path test
-                      NOK       ${My_New_VM}      ${EMPTY}    ${EMPTY}       512 2 Invalid         10 ${EMPTY}             ${EMPTY}
+                      NOK       ${My_New_VM}      ${EMPTY}    ${EMPTY}       512       1       Invalid         1            ${EMPTY}             ${EMPTY}
 
 Invalid Image Location test
-                      NOK       ${My_New_VM}      ${EMPTY}    ${EMPTY}       512 2 ${Disk_Path}    10 Invalid              ${EMPTY}
+                      NOK       ${My_New_VM}      ${EMPTY}    ${EMPTY}       512       1       ${Disk_Path}    1            Invalid              ${EMPTY}
 
 *** Keywords ***
 Startup
@@ -58,17 +58,17 @@ Create_KVM_VMS Template
     ...    -${Configuration}: This field specifies more options which can be appended to the command. E.g.: -graphics vnc
     Generate String
     Init Action    ${_CREATE_KVM_VM_ACTION}
-    Action Set    &UC4RB_KVM_#    ${VM_Name}
-    Action Set    &UC4RB_KVM_#    ${OS_Type}
-    Action Set    &UC4RB_KVM_#    ${Description}
-    Action Set    &UC4RB_KVM_#    ${Memory}
-    Action Set    &UC4RB_KVM_#    ${CPUs}
-    run Keyword If    '${Disk_Path}' == 'Invalid'    Action Set    &UC4RB_KVM_VM_#    ${Generated_Name}_${Time}    ELSE    Action Set
-    ...    &UC4RB_KVM_VM_#    ${Disk_Path}
-    Action Set    &UC4RB_KVM_#    ${Disk_Size}
-    run Keyword If    '${Image_Location}' == 'Invalid'    Action Set    &UC4RB_KVM_VM_#    ${Generated_Name}_${Time}    ELSE    Action Set
-    ...    &UC4RB_KVM_VM_#    ${Image_Location}
-    Action Set    &UC4RB_KVM_#    ${Configuration}
+    Action Set    &UC4RB_KVM_VM_NAME#    ${VM_Name}
+    Action Set    &UC4RB_KVM_OS_TYPE#    ${OS_Type}
+    Action Set    &UC4RB_KVM_DESCRIPTION#    ${Description}
+    Action Set    &UC4RB_KVM_MEMORY#    ${Memory}
+    Action Set    &UC4RB_KVM_CPUS#    ${CPUs}
+    run Keyword If    '${Disk_Path}' == 'Invalid'    Action Set    &UC4RB_KVM_DISK_PATH#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_KVM_DISK_PATH#    ${Disk_Path}
+    Action Set    &UC4RB_KVM_DISK_SIZE#    ${Disk_Size}
+    run Keyword If    '${Image_Location}' == 'Invalid'    Action Set    &UC4RB_KVM_IMAGE_LOCATION#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_KVM_IMAGE_LOCATION#    ${Image_Location}
+    Action Set    &UC4RB_KVM_CONFIGURATION#    ${Configuration}
     Set Overwrite Agent
     Action Execute
     Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE IF    '${OK_NOK}' == 'NOK'    Assert Failure

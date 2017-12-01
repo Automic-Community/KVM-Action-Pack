@@ -8,11 +8,14 @@ ${Snapshot}       Without Snapshots
 ${State}          Running
 ${All}            All
 ${StatePaused}    Paused
+#----Get VM Info------------------------------------------------------------------------------------
+${VMName}         ADD_VM_NAME_HERE
 #-----Clone KVM VM------------------------------------------------------------------------------------------------
 ${Original_Guest}    ABC_SKU
-${UUID}           4469b16a-81df-4734-9431-e11aab8f75e3
-#-----Reboot KVM VM------------------------------------------------------------------------------------------------
-${VM_Name}        new-vm-clone1
-${Default_Mode}    Not specified
-#----Get VM Info------------------------------------------------------------------------------------
-${VMName}         test-vm
+${UUID}           ADD_UUID_HERE
+#-----Reboot KVM VM----------------------------------------------------------------------------------------
+${Shutoff_VMName}    ADD_SHUTOFF_VM_HERE
+#-----Create KVM VM----------------------------------------------------------------------------------------
+${My_New_VM}      ADD_NEW_VM_NAME_HERE
+${Disk_Path}      ADD_DISK_PATH_HERE
+${Image_Location}    ADD_IMAGE_LOCATION_HERE
