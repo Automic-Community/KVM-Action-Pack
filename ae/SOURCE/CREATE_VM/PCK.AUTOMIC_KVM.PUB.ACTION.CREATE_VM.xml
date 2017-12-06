@@ -342,13 +342,13 @@ Create a new VM.
 * Disk Path				: Specify media to use as storage for the guest, with various options.
 * Disk Size (GB)			: Specify size of the disk to be used by VM. E.g. 10
 * Image Location			: Provide location of the image to be used. Can be on directory, ftp, http etc.
-* Configurations			: Provide more options which can be appended to the command. E.g. -graphics vnc
+* Configurations			: Provide more options which can be appended to the command. E.g.  --graphics vnc --network network=default
 
 = Behavior =
 (none)
 
 =Return Value=
-* UC4RB_KVM_VM_ID : This variable will contain created VM id.
+* UC4RB_KVM_VM_UUID : This variable will contain created VM uuid.
 
 = Outputs =
 * Return code is 0 in case of success.
