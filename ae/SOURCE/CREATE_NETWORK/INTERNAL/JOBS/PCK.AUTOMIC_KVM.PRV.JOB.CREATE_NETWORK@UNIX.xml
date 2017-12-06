@@ -144,8 +144,7 @@
 
 :PRINT "Command Executed :: &UC4RB_KVM_CMD#"
 
-&UC4RB_KVM_CMD#
-
+output=`&UC4RB_KVM_CMD#`
 execcode=$?
 if [ "$execcode" -ne "0" ]
 then
@@ -153,11 +152,14 @@ then
     exit $execcode
 fi
 
-: SET &UC4RB_KVM_CMD# = "grep -oP '(?<=<name>).*?(?=</name>)'"
+echo "$output"
+result=${output##*$'\n'}
 
-: SET &UC4RB_KVM_CMD# = STR_CAT(&UC4RB_KVM_CMD#, " &UC4RB_FILE_PATH#")
+temp=`echo "$result" | awk  '{print $2}'`
+temp="${temp%\'}"
+networkName="${temp#\'}"
 
-networkName=`&UC4RB_KVM_CMD#`
+networkUUID=`virsh net-uuid --network ${networkName}`
 
 execcode=$?
 if [ "$execcode" -ne "0" ]
@@ -165,8 +167,6 @@ then
 :   INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.ERROR
     exit $execcode
 fi
-
-networkUUID=`virsh net-uuid --network $networkName`
 
 echo "UC4RB_KVM_NETWORK_UUID::=$networkUUID"
 
