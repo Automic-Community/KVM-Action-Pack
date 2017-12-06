@@ -296,7 +296,34 @@
 <MSCRI/>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
-<DOC/>
+<DOC><![CDATA[= Action name =
+PCK.AUTOMIC_KVM.PUB.ACTION.CREATE_NETWORK
+
+= General description =
+Creates a network, using settings from an XML file.
+
+= Failure Conditions =
+(none)
+
+= Inputs =
+* Network Type			: Specify type of the virtual network. E.g. Transient
+* Network Configuration File	: Provide full path including file name of the network configuration xml file. E.g. /root/examplenetwork.xml
+
+= Behavior =
+(none)
+
+=Return Value=
+* UC4RB_KVM_NETWORK_UUID : This variable will contain created network uuid.
+
+= Outputs =
+* Return code is 0 in case of success.
+* Return code is non-zero in case of failure.
+
+= Rollback =
+(none)
+
+= Logging =
+AE logs will be displayed in the AE report.]]></DOC>
 </DOCU_Docu>
 </JOBP>
 </uc-export>
