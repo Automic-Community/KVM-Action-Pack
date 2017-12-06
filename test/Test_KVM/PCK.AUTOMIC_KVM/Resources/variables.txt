@@ -19,3 +19,5 @@ ${Shutoff_VMName}    ADD_SHUTOFF_VM_HERE
 ${My_New_VM}      ADD_NEW_VM_NAME_HERE
 ${Disk_Path}      ADD_DISK_PATH_HERE
 ${Image_Location}    ADD_IMAGE_LOCATION_HERE
+#-----Create Network-------------------------------------------------------------------------------------
+${File_Path}      D:\KVM\create_network1.xml
