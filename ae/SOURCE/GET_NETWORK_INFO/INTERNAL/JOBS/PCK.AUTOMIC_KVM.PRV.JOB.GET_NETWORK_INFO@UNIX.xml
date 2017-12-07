@@ -129,7 +129,7 @@
 
 ! Status messages
 : SET &UC4RB_LOGGING_INFO# = "******** GET NETWORK INFO ACTION EXECUTED SUCCESSFULLY ********"
-: SET &UC4RB_LOGGING_ERROR# = "******** GET NETWORK INFO FAILED ********"
+: SET &UC4RB_LOGGING_ERROR# = "******** GET NETWORK INFO ACTION FAILED ********"
 
 echo ""
 
@@ -143,6 +143,13 @@ then
 fi
 
 xml=`virsh net-dumpxml &UC4RB_NW_NAME_ESCAPED#`
+
+execcode=$?
+if [ $execcode -ne 0 ]
+then
+:  INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.ERROR
+    exit $execcode
+fi
 
 echo UC4RB_KVM_NW_XML::=$xml
 echo ""

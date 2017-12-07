@@ -293,7 +293,7 @@
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC><![CDATA[= Action name =
-PCK.AUTOMIC_KVM.PUB.ACTION.GET_NETWORK_INFOC
+PCK.AUTOMIC_KVM.PUB.ACTION.GET_NETWORK_INFO
 
 = General description =
 Displays basic information for a virtual network.
