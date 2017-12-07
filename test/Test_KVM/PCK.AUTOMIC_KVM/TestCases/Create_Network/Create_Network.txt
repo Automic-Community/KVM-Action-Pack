@@ -51,7 +51,6 @@ Create_Network Template
     Set Overwrite Agent
     Action Execute
     Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE IF    '${OK_NOK}' == 'NOK'    Assert Failure
-    Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Should Be Found    &UC4RB_KVM_NETWORK_UUID#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_KVM_NETWORK_UUID#
 
 Teardown
     Log    *******End Test "CREATE KVM VMS"*******
