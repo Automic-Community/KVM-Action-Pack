@@ -313,7 +313,7 @@ Creates a network, using settings from an XML file.
 (none)
 
 =Return Value=
-* UC4RB_KVM_NETWORK_UUID : This variable will contain created network uuid.
+(none)
 
 = Outputs =
 * Return code is 0 in case of success.
