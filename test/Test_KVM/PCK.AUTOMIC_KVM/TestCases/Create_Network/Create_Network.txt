@@ -1,0 +1,57 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        Create_Network
+Test Template     Create_Network Template
+Library           com.automic.robot.itpa.ItpaLibrary
+Library           String
+Library           DateTime
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
+*** Test Cases ***    OK_NOK    Network_Type      Network_Configuration_File
+Valid Test to Create network with default value
+                      [Tags]    main_scenarios
+                      OK        Transient         ${File_Path_Transient}
+
+Valid Test to Create network with Persistent value
+                      [Tags]    main_scenarios
+                      OK        Persistent        ${File_Path_Persistent}
+
+Invalid Test to create network with configuration file already in use for existing network.
+                      NOK       Transient         ${File_Path_Transient}
+
+Invalid test to create Network with Invalid Configuration file
+                      [Tags]    main_scenarios
+                      NOK       Transient         Invalid
+
+Asserting Mandatory fields
+                      NOK       Persistent        ${EMPTY}
+
+*** Keywords ***
+Startup
+    Log    *******Start Test "CREATE NETWORK"*******
+    Log    *******Connect to AE******
+    Connect AE
+
+Create_Network Template
+    [Arguments]    ${OK_NOK}    ${Network_Type}    ${Network_Configuration_File}
+    [Documentation]    This test Create a Network as per specified parameter in configuration XML file
+    ...    _Precondition :- To run this test suit Unix Agent is configured and running
+    ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
+    ...    -${Network_Type}: This field specify type of the virtual network.-transient or persistent
+    ...    -${Network_Configuration_File}: This field provide full path including file name of the network configuration xml file.
+    Generate String
+    Init Action    ${_CREATE_NETWORK_ACTION}
+    Action Set    &UC4RB_KVM_NETWORK_TYPE#    ${Network_Type}
+    run Keyword If    '${Network_Configuration_File}' == 'Invalid'    Action Set    &UC4RB_KVM_NETWORK_CONFIG_FILE#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_KVM_NETWORK_CONFIG_FILE#    ${Network_Configuration_File}
+    Set Overwrite Agent
+    Action Execute
+    Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE IF    '${OK_NOK}' == 'NOK'    Assert Failure
+    Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Should Be Found    &UC4RB_KVM_NETWORK_UUID#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_KVM_NETWORK_UUID#
+
+Teardown
+    Log    *******End Test "CREATE KVM VMS"*******
