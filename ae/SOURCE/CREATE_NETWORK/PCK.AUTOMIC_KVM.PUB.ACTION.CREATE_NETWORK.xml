@@ -323,7 +323,17 @@ Creates a network, using settings from an XML file.
 (none)
 
 = Logging =
-AE logs will be displayed in the AE report.]]></DOC>
+AE logs will be displayed in the AE report.
+
+= Example =
+* Network Configuration File:
+
+<network>
+	<name>examplenetwork</name>
+	<bridge name="virbr100" />
+	<forward mode="route" />
+	<ip address="10.10.120.1" netmask="255.255.255.0" />
+</network>]]></DOC>
 </DOCU_Docu>
 </JOBP>
 </uc-export>
