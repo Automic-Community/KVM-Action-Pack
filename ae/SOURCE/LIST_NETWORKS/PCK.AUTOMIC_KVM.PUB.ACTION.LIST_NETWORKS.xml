@@ -302,7 +302,7 @@ Lists the virtual networks libvirt is aware of, along with basic status and auto
 (none)
 
 = Inputs =
-* List			: Specify which virtual networks you want to list. Eg: Only active networks
+* List			: Specify which virtual networks to list. Eg: Only active networks
 
 = Behavior =
 (none)
