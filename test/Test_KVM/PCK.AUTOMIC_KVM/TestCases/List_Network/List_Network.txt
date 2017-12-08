@@ -1,8 +1,8 @@
 *** Settings ***
 Suite Setup       Startup
 Suite Teardown    Teardown
-Force Tags        List_Network
-Test Template     List_Network Template
+Force Tags        List_Networks
+Test Template     List_Networks Template
 Library           com.automic.robot.itpa.ItpaLibrary
 Library           String
 Library           DateTime
@@ -16,19 +16,19 @@ Valid Test to List network with default value
                       [Tags]    main_scenarios
                       OK        All networks
 
-Valid Test to List only active network
+Valid Test to List only active networks
                       OK        Only active networks
 
-Valid Test to List only inactive network
+Valid Test to List only inactive networks
                       OK        Only inactive networks
 
 *** Keywords ***
 Startup
-    Log    *******Start Test "LIST NETWORK"*******
+    Log    *******Start Test "LIST NETWORKS"*******
     Log    *******Connect to AE******
     Connect AE
 
-List_Network Template
+List_Networks Template
     [Arguments]    ${OK_NOK}    ${List}
     [Documentation]    This test list Networks as per specified parameter selected for listing
     ...    _Precondition :- To run this test suit Unix Agent is configured and running
@@ -36,7 +36,7 @@ List_Network Template
     ...    -${List}: This field Specify which virtual networks you want to list.
     Generate String
     Init Action    ${_LIST_NETWORK_ACTION}
-    Action Set    &UC4RB_KVM_LIST_TYPE#    ${List}
+    Action Set    &UC4RB_KVM_LIST_NETWORK_TYPE#    ${List}
     Set Overwrite Agent
     Action Execute
     Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE IF    '${OK_NOK}' == 'NOK'    Assert Failure
@@ -44,4 +44,4 @@ List_Network Template
     Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Should Be Found    &UC4RB_KVM_NETWORK_LIST#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_KVM_NETWORK_LIST#
 
 Teardown
-    Log    *******End Test "LIST NETWORK"*******
+    Log    *******End Test "LIST NETWORKS"*******
