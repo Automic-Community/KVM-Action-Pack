@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
 <JOBS_UNIX AttrType="UNIX" name="PCK.AUTOMIC_KVM.PRV.JOB.LIST_NETWORKS@UNIX">
 <XHEADER state="1">
-<Title/>
+<Title>List Networks</Title>
 <ArchiveKey1/>
 <ArchiveKey2/>
 <Active>1</Active>
@@ -112,7 +112,7 @@
 
 !List
 : SET &UC4RB_LOGGING_PARAMETER# = "List"
-: SET &UC4RB_LOGGING_PARAMETER_VAL# = &UC4RB_KVM_LIST_TYPE##
+: SET &UC4RB_LOGGING_PARAMETER_VAL# = &UC4RB_KVM_LIST_NETWORK_TYPE#
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
 
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.HEADER.EXECUTION
@@ -124,7 +124,7 @@
 : SET &UC4RB_KVM_CMD# = "virsh net-list"
 
 !List
-: SWITCH &UC4RB_KVM_LIST_TYPE#
+: SWITCH &UC4RB_KVM_LIST_NETWORK_TYPE#
 :     CASE "All networks"
 :         SET &UC4RB_KVM_CMD# = STR_CAT(&UC4RB_KVM_CMD#, " --all")
 
@@ -135,6 +135,13 @@
 :PRINT "Command Executed :: &UC4RB_KVM_CMD#"
 
 &UC4RB_KVM_CMD#
+
+execcode=$?
+if [ "$execcode" -ne "0" ]
+then
+:   INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.ERROR
+    exit $execcode
+fi
 
 output=`&UC4RB_KVM_CMD# | wc -l`
 comma=","
