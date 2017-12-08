@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
 <JOBS_UNIX AttrType="UNIX" name="PCK.AUTOMIC_KVM.PRV.JOB.CREATE_NETWORK@UNIX">
 <XHEADER state="1">
-<Title/>
+<Title>Create Network</Title>
 <ArchiveKey1/>
 <ArchiveKey2/>
 <Active>1</Active>
@@ -128,6 +128,7 @@
 : SET &UC4RB_LOGGING_ERROR# = "******** CREATE NETWORK ACTION FAILED ********"
 
 : SET &UC4RB_KVM_CMD# = "virsh "
+: SET &UC4RB_KVM_TYPE# = ""
 
 !Network Type
 : IF &UC4RB_KVM_NETWORK_TYPE# = "Transient"
@@ -139,36 +140,11 @@
 !Network Configuration File
 : SET &UC4RB_ESCAPED_STRING# = &UC4RB_KVM_NETWORK_CONFIG_FILE#
 : INC PCK.AUTOMIC_KVM.PUB.INCLUDE.ESCAPE_ARG_VALUE
-: SET &UC4RB_FILE_PATH# = &UC4RB_ESCAPED_STRING#
 : SET &UC4RB_KVM_CMD# = STR_CAT(&UC4RB_KVM_CMD#, " --file &UC4RB_ESCAPED_STRING#")
 
 :PRINT "Command Executed :: &UC4RB_KVM_CMD#"
 
-output=`&UC4RB_KVM_CMD#`
-execcode=$?
-if [ "$execcode" -ne "0" ]
-then
-:   INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.ERROR
-    exit $execcode
-fi
-
-echo "$output"
-result=${output##*$'\n'}
-
-temp=`echo "$result" | awk  '{print $2}'`
-temp="${temp%\'}"
-networkName="${temp#\'}"
-
-networkUUID=`virsh net-uuid --network ${networkName}`
-
-execcode=$?
-if [ "$execcode" -ne "0" ]
-then
-:   INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.ERROR
-    exit $execcode
-fi
-
-echo "UC4RB_KVM_NETWORK_UUID::=$networkUUID"
+&UC4RB_KVM_CMD#
 
 !------------------------------------------ Error Handling -----------------------------------------------------------------------------------------------------
 
@@ -182,24 +158,7 @@ echo "UC4RB_KVM_NETWORK_UUID::=$networkUUID"
 <LoginFsc/>
 </OUTPUTSCAN>
 <POST_SCRIPT mode="1" replacementmode="1" state="1">
-<OSCRI><![CDATA[:SET &STATUS# = GET_UC_OBJECT_STATUS(,,"RETCODE")
-:SET &UC4RB_KVM_NETWORK_UUID# = ""
-
-:IF &STATUS# EQ 0
-:    SET &HND# = PREP_PROCESS_REPORT("JOBS",, "REP","UC4RB_KVM_*","COL=DELIMITER", 'DELIMITER=*::=*')
-:    PROCESS &HND#
-:         SET &KEY# = GET_PROCESS_LINE(&HND#,1)
-:         SET &VALUE# = GET_PROCESS_LINE(&HND#,2)
-
-:         IF &KEY# = "UC4RB_KVM_NETWORK_UUID"
-:              SET &UC4RB_KVM_NETWORK_UUID# = "&VALUE#"
-:         ENDIF
-
-:   ENDPROCESS
-:   CLOSE_PROCESS &HND#
-:ENDIF
-
-:PUBLISH &UC4RB_KVM_NETWORK_UUID#,,"WORKFLOW"]]></OSCRI>
+<OSCRI/>
 </POST_SCRIPT>
 </JOBS_UNIX>
 </uc-export>
