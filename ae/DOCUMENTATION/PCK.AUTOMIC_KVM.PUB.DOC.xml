@@ -44,7 +44,10 @@ Following actions are supported.
 * Action Description:  Reset a vm immediately without any guest shutdown.
 
 * Action name:   PCK.AUTOMIC_KVM.PUB.ACTION.GET_NETWORK_INFO
-* Action Description:  Displays basic information for a virtual network.]]></DOC>
+* Action Description:  Displays basic information for a virtual network.
+
+* Action name:   PCK.AUTOMIC_KVM.PUB.ACTION.SAVE_VM_TO_FILE
+* Action Description:  Saves a running domain ( RAM , but not disk state) to a state file.]]></DOC>
 </DOCU_Docu>
 </DOCU>
 </uc-export>
