@@ -151,7 +151,7 @@ index=0
 &UC4RB_KVM_CMD# | while read -r line ; do
     temp=`echo "$line" | awk  '{print $1}'`
     index=$(expr $index + 1)
-    if [ $index -eq $((output-1)) ]; then
+    if [ $index -eq $((output-1)) ] && [ 2 -ne $((output-1)) ] ; then
         result+=$temp
         echo "UC4RB_KVM_NETWORK_LIST::=$result"
         break
