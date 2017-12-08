@@ -56,7 +56,7 @@
 <node content="1" id="PCK.AUTOMIC_KVM.PRV.PROMPTSET.STOP_VM" name="PCK.AUTOMIC_KVM.PRV.PROMPTSET.STOP_VM" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.AUTOMIC_KVM.PRV.PROMPTSET.STOP_VM">
 <PRPTBOX promptset="PCK.AUTOMIC_KVM.PRV.PROMPTSET.STOP_VM">
-<UC4RB_KVM_FAIL_IF_RUNNINGs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_FAIL_IF_RUNNING#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.STOP_VM">NO</UC4RB_KVM_FAIL_IF_RUNNINGs.00>
+<UC4RB_KVM_FAIL_IF_STOPPEDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_FAIL_IF_STOPPED#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.STOP_VM">NO</UC4RB_KVM_FAIL_IF_STOPPEDs.00>
 <UC4RB_KVM_GRACEFULs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_GRACEFUL#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.STOP_VM">NO</UC4RB_KVM_GRACEFULs.00>
 <UC4RB_KVM_VM_NAME_UUIDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_VM_NAME_UUID#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.STOP_VM"/>
 </PRPTBOX>
@@ -122,7 +122,7 @@
 <node content="1" id="PCK.AUTOMIC_KVM.PRV.PROMPTSET.STOP_VM" name="PCK.AUTOMIC_KVM.PRV.PROMPTSET.STOP_VM" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.AUTOMIC_KVM.PRV.PROMPTSET.STOP_VM">
 <PRPTBOX promptset="PCK.AUTOMIC_KVM.PRV.PROMPTSET.STOP_VM">
-<UC4RB_KVM_FAIL_IF_RUNNINGs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_FAIL_IF_RUNNING#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.STOP_VM">NO</UC4RB_KVM_FAIL_IF_RUNNINGs.00>
+<UC4RB_KVM_FAIL_IF_STOPPEDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_FAIL_IF_STOPPED#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.STOP_VM">NO</UC4RB_KVM_FAIL_IF_STOPPEDs.00>
 <UC4RB_KVM_GRACEFULs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_GRACEFUL#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.STOP_VM">NO</UC4RB_KVM_GRACEFULs.00>
 <UC4RB_KVM_VM_NAME_UUIDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_VM_NAME_UUID#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.STOP_VM"/>
 </PRPTBOX>
@@ -174,7 +174,7 @@
 <node content="1" id="PCK.AUTOMIC_KVM.PRV.PROMPTSET.STOP_VM" name="PCK.AUTOMIC_KVM.PRV.PROMPTSET.STOP_VM" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.AUTOMIC_KVM.PRV.PROMPTSET.STOP_VM">
 <PRPTBOX promptset="PCK.AUTOMIC_KVM.PRV.PROMPTSET.STOP_VM">
-<UC4RB_KVM_FAIL_IF_RUNNINGs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_FAIL_IF_RUNNING#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.STOP_VM">NO</UC4RB_KVM_FAIL_IF_RUNNINGs.00>
+<UC4RB_KVM_FAIL_IF_STOPPEDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_FAIL_IF_STOPPED#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.STOP_VM">NO</UC4RB_KVM_FAIL_IF_STOPPEDs.00>
 <UC4RB_KVM_GRACEFULs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_GRACEFUL#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.STOP_VM">NO</UC4RB_KVM_GRACEFULs.00>
 <UC4RB_KVM_VM_NAME_UUIDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_KVM_VM_NAME_UUID#" promptsetname="PCK.AUTOMIC_KVM.PRV.PROMPTSET.STOP_VM"/>
 </PRPTBOX>
@@ -257,7 +257,7 @@
 <PRPTBOX promptset="PCK.AUTOMIC_KVM.PRV.PROMPTSET.STOP_VM" prptmode="1">
 <UC4RB_KVM_VM_NAME_UUIDs.00 altview="0" haslist="0"/>
 <UC4RB_KVM_GRACEFULs.00 altview="0" haslist="0">NO</UC4RB_KVM_GRACEFULs.00>
-<UC4RB_KVM_FAIL_IF_RUNNINGs.00 altview="0" haslist="0">NO</UC4RB_KVM_FAIL_IF_RUNNINGs.00>
+<UC4RB_KVM_FAIL_IF_STOPPEDs.00 altview="0" haslist="0">NO</UC4RB_KVM_FAIL_IF_STOPPEDs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -312,7 +312,7 @@ Stop a VM.
 = Inputs =
 * VM Name or UUID			: Provide name or UUID of VM you want to stop. Eg: test-vm
 * Graceful					: Specify whether if you want to stop VM gracefully.Default value is 'No'.
-* Fail if running				: Specify whether if you want to fail action if VM is already stopped.Default value is 'No'.
+* Fail if stopped				: Specify whether if you want to fail action if VM is already stopped.Default value is 'No'.
 
 = Behavior =
 Stop a VM if the given VM exists and is in running state.
