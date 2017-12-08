@@ -19,10 +19,7 @@ Get network info with network name
 Get network info with UUID
                       OK        ${Network_UUID}
 
-Get network info with Invalid network name
-                      NOK       Invalid
-
-Get network info with Invalid UUID
+Get network info with Invalid network name or UUID
                       NOK       Invalid
 
 Get network info with Mandatory network name check
@@ -44,8 +41,8 @@ Get_Network_Info_Template
     Init Action    ${_GET_KVM_NETWORK_INFO_ACTION}
     Run Keyword If    '${Network_Name_or_UUID}' == 'Invalid'    Action Set    &UC4RB_KVM_NW_NAME_UUID#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_KVM_NW_NAME_UUID#    ${Network_Name_or_UUID}
-    Action Execute
     Set Overwrite Agent
+    Action Execute
     Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE IF    '${OK_NOK}' == 'NOK'    Assert Failure
     Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Should Be Found    &UC4RB_KVM_NW_XML#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_KVM_NW_XML#
 
