@@ -144,7 +144,7 @@
 
 ! Status messages
 : SET &UC4RB_LOGGING_INFO# = "******** STOP VM ACTION EXECUTED SUCCESSFULLY ********"
-: SET &UC4RB_LOGGING_ERROR# = "******** STOP VM FAILED ********"
+: SET &UC4RB_LOGGING_ERROR# = "******** STOP VM ACTION FAILED ********"
 
 output=`&UC4RB_CMD# 2>&1`
 execcode=$?
