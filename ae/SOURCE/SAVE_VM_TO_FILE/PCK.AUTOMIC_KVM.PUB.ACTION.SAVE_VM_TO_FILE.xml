@@ -90,7 +90,7 @@
 </PostCon>
 </postconditions>
 </task>
-<task Alias="SAVE_VM_TO_FILE" BranchType="0" Col="2" Lnr="2" OType="JOBS" Object="PCK.AUTOMIC_KVM.PRV.JOB.SAVE_VM_TO_FILE@GENERIC" ParentAlias="" ParentObject="" Row="1" Text2="">
+<task Alias="SAVE_VM_TO_FILE" BranchType="0" Col="2" Lnr="2" OType="JOBS" Object="PCK.AUTOMIC_KVM.PRV.JOB.SAVE_VM_TO_FILE@UNIX" ParentAlias="" ParentObject="" Row="1" Text2="">
 <checkpoint RollbackFlag="1" RunPerPatch="0" RunPerTarget="0" TcpADays="0" TcpATime="00:00" TcpATimeTZ="" TcpExecute="" TcpOn="0" promptatgen="0" showprompt="0"/>
 <after ActFlg="1" AtimOn="0" ErlstStDays="0" ErlstStTime="00:00" ErlstStTimeTZ="" HoldFlg="0"/>
 <when ChkWhenExec="0" LtstEnd="0" LtstEndDays="0" LtstEndTime="00:00" LtstSt="0" LtstStDays="0" LtstStTime="00:00" LtstTimeTZ="" WCTypeAND="1" WCTypeOR="0" WElseA="1" WElseH="0" WElseS="0" WElseX="0" WhenExecute="" WtimOn="0"/>
@@ -109,7 +109,7 @@
 <node content="1" id="VALUE" name="Variables" parent="" type="TASKVALUE">
 <VALUE state="2">
 <Values/>
-<Mode>1</Mode>
+<Mode>0</Mode>
 </VALUE>
 </node>
 <node content="1" id="PVALUE" name="Parent Variables" parent="" type="TASKVALUE">
@@ -315,13 +315,11 @@ Saves a running domain ( RAM , but not disk state) to a state file so that it ca
 (none)
 
 = Inputs =
-* VM Name or UUID	: Provide name or UUID of VM you want to save to file. E.g. Test_VM
+* VM Name or UUID : Provide name or UUID of VM you want to save to file. E.g. Test_VM
 * Target File			: Provide target file name including full path. E.g. /home/vm_state.xml
-* Bypass Cache		: Specify whether if you want to avoid file system cache while saving.
+* Bypass Cache			: Specify whether if you want to avoid file system cache while saving.
 * Restore State 		: Specify state to be set to VM on restore.
-
 = Behavior =
-(none)
 
 =Return Value=
 (none)
