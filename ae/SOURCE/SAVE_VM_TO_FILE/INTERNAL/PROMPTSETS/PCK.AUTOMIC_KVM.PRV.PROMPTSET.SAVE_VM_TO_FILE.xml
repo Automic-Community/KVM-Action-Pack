@@ -107,8 +107,5 @@
 <PROMPTSETDATA state="1">
 <DATAEDITOR><![CDATA[<PRPTS ontop="1"><PRPTBOX><UC4RB_KVM_VM_NAMEs.00 haslist="0" msgnr="-1" msginsert="" altview="0" promptname="UC4RB_KVM_VM_NAME#" ReadFromTable="OPSE"></UC4RB_KVM_VM_NAMEs.00><UC4RB_KVM_TRG_FILEs.00 haslist="0" msgnr="-1" msginsert="" altview="0" promptname="UC4RB_KVM_TRG_FILE#" ReadFromTable="OPSE"></UC4RB_KVM_TRG_FILEs.00><UC4RB_KVM_SKIP_CACHEs.00 haslist="0" msgnr="-1" msginsert="" altview="0" promptname="UC4RB_KVM_SKIP_CACHE#" ReadFromTable="OPSE">NO</UC4RB_KVM_SKIP_CACHEs.00><UC4RB_KVM_RESTORE_STATEs.00 haslist="0" msgnr="-1" msginsert="" altview="0" promptname="UC4RB_KVM_RESTORE_STATE#" ReadFromTable="OPSE">Empty</UC4RB_KVM_RESTORE_STATEs.00></PRPTBOX></PRPTS>]]></DATAEDITOR>
 </PROMPTSETDATA>
-<DOCU_Docu state="1" type="text">
-<DOC/>
-</DOCU_Docu>
 </PRPT>
 </uc-export>
