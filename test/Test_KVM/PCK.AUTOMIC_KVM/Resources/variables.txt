@@ -22,3 +22,6 @@ ${Image_Location}    ADD_IMAGE_LOCATION_HERE
 #-----Get KVM Network Info----------------------------------------------------------------------------------------
 ${Network_Name}    default
 ${Network_UUID}    8208bf86-c37e-4fc1-864c-7bf0223c98e2
+#-------------Start KVM VM-------------------------
+${VM_To_Start}    ADD_VM_TO_START
+${UUID_To_Start}    ADD_UUID_TO_START
