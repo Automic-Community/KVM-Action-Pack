@@ -32,7 +32,7 @@
 <DeactDelay>0</DeactDelay>
 <AutoDeactAlways>1</AutoDeactAlways>
 <AttDialog>0</AttDialog>
-<ActAtRun>0</ActAtRun>
+<ActAtRun>1</ActAtRun>
 <Consumption>0</Consumption>
 <UC4Priority>0</UC4Priority>
 <MaxParallel2>0</MaxParallel2>
@@ -47,7 +47,7 @@
 <ShellScript>1</ShellScript>
 <Command>0</Command>
 <Priority>0</Priority>
-<Shell/>
+<Shell>-bash</Shell>
 <ShellOptions/>
 <Com/>
 </ATTR_UNIX>
@@ -149,11 +149,11 @@
 
 : ENDSWITCH
 
-:PRINT "Command Executed :: &UC4RB_CMD#"
-
 ! Status messages
 : SET &UC4RB_LOGGING_INFO# = "******** RESTORE VM FROM FILE ACTION EXECUTED SUCCESSFULLY ********"
 : SET &UC4RB_LOGGING_ERROR# = "******** RESTORE VM FROM FILE ACTION FAILED ********"
+
+:PRINT "Command Executed :: &UC4RB_CMD#"
 
 output=`&UC4RB_CMD#`
 
@@ -180,8 +180,5 @@ echo ""
 <POST_SCRIPT mode="1" replacementmode="1" state="1">
 <OSCRI/>
 </POST_SCRIPT>
-<DOCU_Docu state="1" type="text">
-<DOC/>
-</DOCU_Docu>
 </JOBS_UNIX>
 </uc-export>
