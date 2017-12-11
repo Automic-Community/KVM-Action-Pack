@@ -27,8 +27,11 @@ Invalid test for invalid VM Name to Stop VM
 Mandatory test for UUID/VM name required to stop VM
                       NOK       ${Empty}           NO          NO
 
-Stop VM when VM already stopped
+Stop VM when VM already stopped and action Fail if stopped yes
                       NOK       ${VM_To_Stop}      NO          YES
+
+Stop VM when VM already stopped and action won't fail if stop NO
+                      OK        ${VM_To_Stop}      NO          NO
 
 *** Keywords ***
 Startup
