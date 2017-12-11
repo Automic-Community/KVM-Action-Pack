@@ -22,3 +22,6 @@ ${Image_Location}    ADD_IMAGE_LOCATION_HERE
 #-----Create Network-------------------------------------------------------------------------------------
 ${File_Path_Transient}    ADD_TRANSIENT_PATH
 ${File_Path_Persistent}    ADD_PERSISTENT_PATH
+#-----Get KVM Network Info----------------------------------------------------------------------------------------
+${Network_Name}    default
+${Network_UUID}    8208bf86-c37e-4fc1-864c-7bf0223c98e2
