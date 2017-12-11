@@ -1,0 +1,61 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        Stop_KVM_VMS
+Default Tags
+Test Template     Stop KVM VMS Template
+Library           com.automic.robot.itpa.ItpaLibrary
+Library           String
+Library           DateTime
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
+*** Test Cases ***    OK_NOK    VM_Name_or_UUID    Graceful    Fail_if_stopped
+Stop VM with valid VM name and default values
+                      [Tags]    main_scenarios
+                      OK        ${VM_To_Stop}      NO          NO
+
+Stop VM with valid UUID and stop it gracefully
+                      [Tags]    main_scenarios
+                      OK        ${UUID_To_Stop}    YES         NO
+
+Invalid test for invalid VM Name to Stop VM
+                      NOK       Invalid            NO          NO
+
+Mandatory test for UUID/VM name required to stop VM
+                      NOK       ${Empty}           NO          NO
+
+Stop VM when VM already stopped and action Fail if stopped yes
+                      NOK       ${VM_To_Stop}      NO          YES
+
+Stop VM when VM already stopped and action won't fail if stop NO
+                      OK        ${VM_To_Stop}      NO          NO
+
+*** Keywords ***
+Startup
+    Log    *******Start Test "STOP KVM VM"*******
+    Log    *******Connect to AE*******
+    Connect AE
+
+Stop KVM VMS Template
+    [Arguments]    ${OK_NOK}    ${VM_Name_or_UUID}    ${Graceful}    ${Fail_if_stopped}
+    [Documentation]    This test stop a VM as per specified parameter value
+    ...    _Precondition :- To run this test suit Unix Agent is configured and running and atleast on VM should be there to stop
+    ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
+    ...    -${VM_Name_or_UUID}: Provide name or UUID of VM you want to stop.
+    ...    -${Graceful}: Specify whether if you want to stop VM gracefully.Default value is 'No'.
+    ...    -${Fail_if_stopped}: Specify whether if you want to fail action if VM is already stopped.Default value is 'No'.
+    Generate String
+    Init Action    ${_STOP_KVM_VM_ACTION}
+    Run Keyword If    '${VM_Name_or_UUID}' == 'Invalid'    Action Set    &UC4RB_KVM_VM_NAME_UUID#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_KVM_VM_NAME_UUID#    ${VM_Name_or_UUID}
+    Action Set    &UC4RB_KVM_GRACEFUL#    ${Graceful}
+    Action Set    &UC4RB_KVM_FAIL_IF_STOPPED#    ${Fail_if_stopped}
+    Set Overwrite Agent
+    Action Execute
+    Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE IF    '${OK_NOK}' == 'NOK'    Assert Failure
+
+Teardown
+    Log    *******End Test "STOP KVM VM"*******
