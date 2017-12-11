@@ -15,20 +15,20 @@ Resource          ../../Resources/actions.txt
 *** Test Cases ***    OK_NOK    VM_Name_or_UUID    Graceful    Fail_if_stopped
 Stop VM with valid VM name and default values
                       [Tags]    main_scenarios
-                      OK        ${VM_To_Stop}      No          No
+                      OK        ${VM_To_Stop}      NO          NO
 
 Stop VM with valid UUID and stop it gracefully
                       [Tags]    main_scenarios
-                      OK        ${UUID_To_Stop}    Yes         No
+                      OK        ${UUID_To_Stop}    YES         NO
 
 Invalid test for invalid VM Name to Stop VM
-                      NOK       Invalid            No          Empty
+                      NOK       Invalid            NO          NO
 
 Mandatory test for UUID/VM name required to stop VM
-                      NOK       ${Empty}           No          Empty
+                      NOK       ${Empty}           NO          NO
 
 Stop VM when VM already stopped
-                      NOK       ${VM_To_Stop}      No          Yes
+                      NOK       ${VM_To_Stop}      NO          YES
 
 *** Keywords ***
 Startup
@@ -49,7 +49,7 @@ Stop KVM VMS Template
     Run Keyword If    '${VM_Name_or_UUID}' == 'Invalid'    Action Set    &UC4RB_KVM_VM_NAME_UUID#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_KVM_VM_NAME_UUID#    ${VM_Name_or_UUID}
     Action Set    &UC4RB_KVM_GRACEFUL#    ${Graceful}
-    Action Set    &UC4RB_KVM_FAIL_IF_RUNNING#    ${Fail_if_stopped}
+    Action Set    &UC4RB_KVM_FAIL_IF_STOPPED#    ${Fail_if_stopped}
     Set Overwrite Agent
     Action Execute
     Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE IF    '${OK_NOK}' == 'NOK'    Assert Failure
