@@ -315,11 +315,13 @@ Saves a running domain ( RAM , but not disk state) to a state file so that it ca
 (none)
 
 = Inputs =
-* VM Name or UUID : Provide name or UUID of VM you want to save to file. E.g. Test_VM
+* VM Name or UUID	: Provide name or UUID of VM you want to save to file. E.g. Test_VM
 * Target File			: Provide target file name including full path. E.g. /home/vm_state.xml
-* Bypass Cache			: Specify whether if you want to avoid file system cache while saving.
-* Restore State 		: Specify state to be set to VM on restore.
+* Bypass Cache		: Specify whether if you want to avoid file system cache while saving. Default: NO
+* Restore State 		: Specify state to be set to VM on restore. Default: Empty
+
 = Behavior =
+(none)
 
 =Return Value=
 (none)
