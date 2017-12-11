@@ -43,6 +43,9 @@ Following actions are supported.
 * Action name:   PCK.AUTOMIC_KVM.PUB.ACTION.RESET_VM
 * Action Description:  Reset a vm immediately without any guest shutdown.
 
+* Action name:   PCK.AUTOMIC_KVM.PUB.ACTION.START_VM
+* Action Description:  Start a guest domain, either from the last managedsave state, or via a fresh boot if no managedsave state is present.
+
 * Action name:   PCK.AUTOMIC_KVM.PUB.ACTION.CREATE_NETWORK
 * Action Description:  Creates a network, using settings from an XML file.
 
