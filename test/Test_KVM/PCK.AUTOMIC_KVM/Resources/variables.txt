@@ -24,4 +24,9 @@ ${File_Path_Transient}    ADD_TRANSIENT_PATH
 ${File_Path_Persistent}    ADD_PERSISTENT_PATH
 #-----Get KVM Network Info----------------------------------------------------------------------------------------
 ${Network_Name}    default
-${Network_UUID}    8208bf86-c37e-4fc1-864c-7bf0223c98e2
+${Network_UUID}    ADD_NETWORK_UUID_HERE
+#-----Restore KVM VM------------------------------------------------------------------------------------
+${Source_File_Path1}    ADD_SOURCE_FILE1_PATH_HERE
+${Source_File_Path2}    ADD_SOURCE_FILE2_PATH_HERE
+${Source_File_Path3}    ADD_SOURCE_FILE3_PATH_HER
+
