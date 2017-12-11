@@ -18,7 +18,7 @@ Valid Test to Create KVM VM with default value
 
 Invalid test to create KVM VM with already existing VM name
                       [Tags]    main_scenarios
-                      NOK       ${VM_Name}        ${EMPTY}    ${EMPTY}       512       1       ${Disk_Path}    1            ${Image_Location}    ${EMPTY}
+                      NOK       ${VMName}         ${EMPTY}    ${EMPTY}       512       1       ${Disk_Path}    1            ${Image_Location}    ${EMPTY}
 
 Asserting Mandatory field VM Name
                       NOK       ${EMPTY}          ${EMPTY}    ${EMPTY}       512       1       ${Disk_Path}    1            ${Image_Location}    ${EMPTY}
