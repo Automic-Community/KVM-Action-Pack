@@ -50,7 +50,14 @@ Following actions are supported.
 * Action Description: Lists the virtual networks libvirt is aware of, along with basic status and autostart information.
 
 * Action name:   PCK.AUTOMIC_KVM.PUB.ACTION.STOP_VM
-* Action Description: Stop a VM.]]></DOC>
+* Action Description: Stop a VM.
+
+* Action name:   PCK.AUTOMIC_KVM.PUB.ACTION.GET_NETWORK_INFO
+* Action Description:  Displays basic information for a virtual network.
+
+* Action name:   PCK.AUTOMIC_KVM.PUB.ACTION.RESTORE_VM_FROM_FILE
+* Action Description:  Restores a  VM (domain) from provided source file.
+]]></DOC>
 </DOCU_Docu>
 </DOCU>
 </uc-export>
