@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
-<JOBS_UNIX AttrType="UNIX" name="PCK.AUTOMIC_KVM.PRV.JOB.START_VM@UNIX">
+<JOBS_UNIX AttrType="UNIX" name="PCK.AUTOMIC_KVM.PRV.JOB.SHUTDOWN_VM@UNIX">
 <XHEADER state="1">
-<Title>Start VM</Title>
+<Title>Shutdown VM</Title>
 <ArchiveKey1/>
 <ArchiveKey2/>
 <Active>1</Active>
@@ -111,49 +111,39 @@
 : INC PCK.ITPA_SHARED.PUB.INCLUDE.SUDOERS_HEADER
 
 : SET &UC4RB_LOGGING_PARAMETER# = "VM Name or UUID"
-: SET &UC4RB_LOGGING_PARAMETER_VAL# = &UC4RB_KVM_VM_NAME_UUID#
+: SET &UC4RB_LOGGING_PARAMETER_VAL# = &UC4RB_KVM_VM_NAME#
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
 
-: SET &UC4RB_LOGGING_PARAMETER# = "Fail if running"
-: SET &UC4RB_LOGGING_PARAMETER_VAL# = &UC4RB_KVM_FAIL_IF_RUNNING#
+: SET &UC4RB_LOGGING_PARAMETER# = "Shutdown Mode"
+: SET &UC4RB_LOGGING_PARAMETER_VAL# = &UC4RB_KVM_MODE#
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
 
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.HEADER.EXECUTION
 
 !Prepare Command
-: SET &UC4RB_CMD# = "virsh start"
+: SET &UC4RB_CMD# = "virsh shutdown"
 
 !VM name or UUID
-: SET &UC4RB_ESCAPED_STRING# = &UC4RB_KVM_VM_NAME_UUID#
+: SET &UC4RB_ESCAPED_STRING# = &UC4RB_KVM_VM_NAME#
 : INC PCK.AUTOMIC_KVM.PUB.INCLUDE.ESCAPE_ARG_VALUE
 : SET &UC4RB_CMD# = STR_CAT(&UC4RB_CMD#, " &UC4RB_ESCAPED_STRING#")
+
+!Shutdown Mode
+:IF &UC4RB_KVM_MODE# <> ""
+: SET &ATTRIBUTE_VARA# = "PCK.AUTOMIC_KVM.PRV.VARA.SHUTDOWN_MODES"
+: SET &UC4RB_KVM_ATTRIBUTE# = &UC4RB_KVM_MODE#
+: INC PCK.AUTOMIC_KVM.PUB.INCLUDE.ITERATE_VARA
+: SET &UC4RB_CMD# = STR_CAT(&UC4RB_CMD#, " --mode &ATTRIBUTE#")
+: ENDIF
 
 :PRINT "Command Executed :: &UC4RB_CMD#"
 
 ! Status messages
-: SET &UC4RB_LOGGING_INFO# = "******** START VM ACTION EXECUTED SUCCESSFULLY ********"
-: SET &UC4RB_LOGGING_ERROR# = "******** START VM ACTION FAILED ********"
+: SET &UC4RB_LOGGING_INFO# = "******** SHUTDOWN VM ACTION EXECUTED SUCCESSFULLY ********"
+: SET &UC4RB_LOGGING_ERROR# = "******** SHUTDOWN VM ACTION FAILED ********"
 
-output=`&UC4RB_CMD# 2>&1`
-execcode=$?
+&UC4RB_CMD#
 
-if [[ $output == *"Domain is already active"* ]]
-then
-  if [[ &UC4RB_KVM_FAIL_IF_RUNNING# == "NO" ]]
-  then
-     echo "$output"
-:    INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.INFO
-     exit 0
-  fi
-fi
-
-echo "$output"
-
-if [ "$execcode" -ne "0" ]
-then
-:   INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.ERROR
-    exit $execcode
-fi
 !------------------------------------------ Error Handling -----------------------------------------------------------------------------------------------------
 
 : INC PCK.AUTOMIC_KVM.PUB.INCLUDE.CHECK_JOBSTATUS

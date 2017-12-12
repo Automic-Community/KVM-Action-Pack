@@ -155,8 +155,6 @@ index=0
         break
     fi
     if [ $index -eq $((output-1)) ] ; then
-        echo $index
-        echo $((output-1))
         result+=$temp
         echo "UC4RB_KVM_NETWORK_LIST::=$result"
         break
@@ -205,5 +203,8 @@ echo "UC4RB_KVM_NETWORK_COUNT::=$((output-3))"
 :PUBLISH &UC4RB_KVM_NETWORK_COUNT#,,"WORKFLOW"
 :PUBLISH &UC4RB_KVM_NETWORK_LIST#,,"WORKFLOW"]]></OSCRI>
 </POST_SCRIPT>
+<DOCU_Docu state="1" type="text">
+<DOC/>
+</DOCU_Docu>
 </JOBS_UNIX>
 </uc-export>
