@@ -24,7 +24,7 @@ ${File_Path_Transient}    ADD_TRANSIENT_PATH
 ${File_Path_Persistent}    ADD_PERSISTENT_PATH
 #-----Get KVM Network Info----------------------------------------------------------------------------------------
 ${Network_Name}    default
-${Network_UUID}    8208bf86-c37e-4fc1-864c-7bf0223c98e2
+${Network_UUID}    ADD_NETWORK_UUID_HERE
 #-------------Start KVM VM-------------------------
 ${VM_To_Start}    ADD_VM_TO_START
 ${UUID_To_Start}    ADD_UUID_TO_START
@@ -40,3 +40,7 @@ ${Source_File_Path3}    ADD_SOURCE_FILE3_PATH_HERE
 ${VM_To_Shutdown}    ADD_VM_NAME_TO_SHUTDOWN_VM
 ${UUID_To_Shutdown}    ADD_UUID_TO_SHUTDOWN_VM
 ${VM_Already_Shutoff}    ADD_VM_NAME_ALREADY_SHUTOFF
+${Source_File_Path3}    ADD_SOURCE_FILE3_PATH_HER
+#-------------Save KVM VM to file-------------------------
+${TargetFile}     /home/vm_state2.xml
+${VMName1}        Add_2nd_VMNAME_HERE
