@@ -47,7 +47,7 @@
 <ShellScript>1</ShellScript>
 <Command>0</Command>
 <Priority>0</Priority>
-<Shell/>
+<Shell>-bash</Shell>
 <ShellOptions/>
 <Com/>
 </ATTR_UNIX>
@@ -189,8 +189,5 @@ echo ""
 <POST_SCRIPT mode="1" replacementmode="1" state="1">
 <OSCRI/>
 </POST_SCRIPT>
-<DOCU_Docu state="1" type="text">
-<DOC/>
-</DOCU_Docu>
 </JOBS_UNIX>
 </uc-export>
