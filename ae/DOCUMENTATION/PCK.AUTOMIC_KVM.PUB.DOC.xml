@@ -62,7 +62,10 @@ Following actions are supported.
 * Action Description:  Saves a running domain ( RAM , but not disk state) to a state file.
 
 * Action name:   PCK.AUTOMIC_KVM.PUB.ACTION.RESTORE_VM_FROM_FILE
-* Action Description:  Restores a  VM (domain) from provided source file.]]></DOC>
+* Action Description:  Restores a  VM (domain) from provided source file.
+
+* Action name:   PCK.AUTOMIC_KVM.PUB.ACTION.SHUTDOWN_VM
+* Action Description:  Gracefully shuts down a domain.]]></DOC>
 </DOCU_Docu>
 </DOCU>
 </uc-export>
