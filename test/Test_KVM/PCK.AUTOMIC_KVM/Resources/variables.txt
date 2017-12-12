@@ -35,3 +35,5 @@ ${UUID_To_Stop}    ADD_UUID_NAME_TO_STOP
 ${Source_File_Path1}    ADD_SOURCE_FILE1_PATH_HERE
 ${Source_File_Path2}    ADD_SOURCE_FILE2_PATH_HERE
 ${Source_File_Path3}    ADD_SOURCE_FILE3_PATH_HER
+#-------------Save KVM VM to file-------------------------
+${Target File}    /root/vm_state.xml
