@@ -45,8 +45,8 @@ Shutdown KVM VMS Template
     ...    -${Shutdown_Mode}: Specify shutdown mode.
     Generate String
     Init Action    ${_SHUTDOWN_KVM_VM_ACTION}
-    Run Keyword If    '${VM_Name_or_UUID}' == 'Invalid'    Action Set    &UC4RB_KVM_VM_NAME#    ${Generated_Name}_${Time}    ELSE    Action Set
-    ...    &UC4RB_KVM_VM_NAME#    ${VM_Name_or_UUID}
+    Run Keyword If    '${VM_Name_or_UUID}' == 'Invalid'    Action Set    &UC4RB_KVM_VM_NAME_UUID#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_KVM_VM_NAME_UUID#    ${VM_Name_or_UUID}
     Action Set    &UC4RB_KVM_MODE#    ${Shutdown_Mode}
     Set Overwrite Agent
     Action Execute
