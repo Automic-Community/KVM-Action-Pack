@@ -2,7 +2,7 @@
 Resource          ../../../Env/default.txt
 
 *** Variables ***
-#---- Promptset Fields --------------------------------------------------------------------------------------
+#---- Promptset Fields ----------------------------------------------------------------------------	----------
 #----List KVM VMs------------------------------------------------------------------------------------
 ${Snapshot}       Without Snapshots
 ${State}          Running
@@ -19,8 +19,19 @@ ${Shutoff_VMName}    ADD_SHUTOFF_VM_HERE
 ${My_New_VM}      ADD_NEW_VM_NAME_HERE
 ${Disk_Path}      ADD_DISK_PATH_HERE
 ${Image_Location}    ADD_IMAGE_LOCATION_HERE
+#-----Create Network-------------------------------------------------------------------------------------
+${File_Path_Transient}    ADD_TRANSIENT_PATH
+${File_Path_Persistent}    ADD_PERSISTENT_PATH
 #-----Get KVM Network Info----------------------------------------------------------------------------------------
 ${Network_Name}    default
-${Network_UUID}    8208bf86-c37e-4fc1-864c-7bf0223c98e2
-#-----Get Save KVM VMs to File----------------------------------------------------------------------------------------
-${Target File}    8208bf86-c37e-4fc1-864c-7bf0223c98e2
+${Network_UUID}    ADD_NETWORK_UUID_HERE
+#-------------Start KVM VM-------------------------
+${VM_To_Start}    ADD_VM_TO_START
+${UUID_To_Start}    ADD_UUID_TO_START
+#-----Stop KVM VM------------------------------------------------------------------------------------
+${VM_To_Stop}     ADD_VM_NAME_TO_STOP
+${UUID_To_Stop}    ADD_UUID_NAME_TO_STOP
+#-----Restore KVM VM------------------------------------------------------------------------------------
+${Source_File_Path1}    ADD_SOURCE_FILE1_PATH_HERE
+${Source_File_Path2}    ADD_SOURCE_FILE2_PATH_HERE
+${Source_File_Path3}    ADD_SOURCE_FILE3_PATH_HER
