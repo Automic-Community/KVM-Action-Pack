@@ -311,6 +311,8 @@ Gracefully shuts down a domain.
 * Shutdown Mode	                                : Specify shutdown mode. Default: <Not Specified>
 
 = Behavior =
+This coordinates with the domain OS to perform graceful shutdown, so there is no guarantee that it will succeed, 
+and may take a variable length of time depending on what services must be shutdown in the domain.
 
 =Return Value=
 (none)
