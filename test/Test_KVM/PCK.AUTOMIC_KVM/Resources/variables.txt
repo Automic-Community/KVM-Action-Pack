@@ -9,7 +9,7 @@ ${State}          Running
 ${All}            All
 ${StatePaused}    Paused
 #----Get VM Info------------------------------------------------------------------------------------
-${VMName}         kvm
+${VMName}         ADD_VM_NAME_HERE
 #-----Clone KVM VM------------------------------------------------------------------------------------------------
 ${Original_Guest}    ABC_SKU
 ${UUID}           ADD_UUID_HERE
@@ -37,4 +37,4 @@ ${Source_File_Path2}    ADD_SOURCE_FILE2_PATH_HERE
 ${Source_File_Path3}    ADD_SOURCE_FILE3_PATH_HER
 #-------------Save KVM VM to file-------------------------
 ${TargetFile}     /home/vm_state2.xml
-${VMName1}        vmforcreate
+${VMName1}        Add_2nd_VMNAME_HERE
