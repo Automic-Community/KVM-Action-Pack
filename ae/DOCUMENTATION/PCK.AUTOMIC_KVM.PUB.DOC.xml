@@ -58,9 +58,11 @@ Following actions are supported.
 * Action name:   PCK.AUTOMIC_KVM.PUB.ACTION.GET_NETWORK_INFO
 * Action Description:  Displays basic information for a virtual network.
 
+* Action name:   PCK.AUTOMIC_KVM.PUB.ACTION.SAVE_VM_TO_FILE
+* Action Description:  Saves a running domain ( RAM , but not disk state) to a state file.
+
 * Action name:   PCK.AUTOMIC_KVM.PUB.ACTION.RESTORE_VM_FROM_FILE
-* Action Description:  Restores a  VM (domain) from provided source file.
-]]></DOC>
+* Action Description:  Restores a  VM (domain) from provided source file.]]></DOC>
 </DOCU_Docu>
 </DOCU>
 </uc-export>
