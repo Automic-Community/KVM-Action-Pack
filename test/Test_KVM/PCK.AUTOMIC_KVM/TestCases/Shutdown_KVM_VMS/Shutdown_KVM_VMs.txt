@@ -15,20 +15,23 @@ Resource          ../../Resources/actions.txt
 *** Test Cases ***    OK_NOK    VM_Name_or_UUID          Shutdown_Mode
 Shutdown VM with valid VM name and default shutdown mode
                       [Tags]    main_scenarios
-                      OK        ${VM_To_Shutdown}        Not specified
+                      OK        ${VM_To_Shutdown}        ${Empty}
 
 Shutdown VM with valid UUID and default shutdown mode
                       [Tags]    main_scenarios
-                      OK        ${UUID_To_Shutdown}      Not specified
+                      OK        ${UUID_To_Shutdown}      ${Empty}
 
 Invalid test for invalid VM Name to Shutdown VM
-                      NOK       Invalid                  Not specified
+                      NOK       Invalid                  ${Empty}
 
 Mandatory test for UUID/VM name required to shutdown VM
-                      NOK       ${Empty}                 Not specified
+                      NOK       ${Empty}                 ${Empty}
 
 Shutdown VM when VM already shut off
-                      NOK       ${VM_Already_Shutoff}    Not specified
+                      NOK       ${VM_Already_Shutoff}    ${Empty}
+
+Shutdown VM with acpi shutdown mode
+                      OK        ${VM_To_Shutdown}        acpi
 
 *** Keywords ***
 Startup
