@@ -2,14 +2,14 @@
 Resource          ../../../Env/default.txt
 
 *** Variables ***
-#---- Promptset Fields ----------------------------------------------------------------------------	----------
+#---- Promptset Fields ----------------------------------------------------------------------------    ----------
 #----List KVM VMs------------------------------------------------------------------------------------
 ${Snapshot}       Without Snapshots
 ${State}          Running
 ${All}            All
 ${StatePaused}    Paused
 #----Get VM Info------------------------------------------------------------------------------------
-${VMName}         ADD_VM_NAME_HERE
+${VMName}         kvm
 #-----Clone KVM VM------------------------------------------------------------------------------------------------
 ${Original_Guest}    ABC_SKU
 ${UUID}           ADD_UUID_HERE
@@ -36,4 +36,5 @@ ${Source_File_Path1}    ADD_SOURCE_FILE1_PATH_HERE
 ${Source_File_Path2}    ADD_SOURCE_FILE2_PATH_HERE
 ${Source_File_Path3}    ADD_SOURCE_FILE3_PATH_HER
 #-------------Save KVM VM to file-------------------------
-${Target File}    /root/vm_state.xml
+${TargetFile}     /home/vm_state2.xml
+${VMName1}        vmforcreate

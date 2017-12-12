@@ -12,25 +12,22 @@ Resource          ../../Resources/keywords.txt
 Resource          ../../Resources/variables.txt
 Resource          ../../Resources/actions.txt
 
-*** Test Cases ***    OK_NOK    VM Name/UUID      Target File       Bypass_Cache    Restore_State
+*** Test Cases ***    OK_NOK    VMName            TargetFile       Bypass_Cache    Restore_State
 Save VM to file with valid VM name
                       [Tags]    main_scenarios
-                      OK        ${VMName}         ${Target File}    NO              Empty
-
-Save VM to file with valid UUID with restore state as running
-                      OK        ${UUID}           ${Target File}    YES             Paused
+                      OK        ${VMName}         ${TargetFile}    NO              Empty
 
 Save VM to file with restore state as running
-                      OK        ${VMName}         ${Target File}    NO              Running
+                      OK        ${VMName1}        ${TargetFile}    NO              Running
 
 Mandatory Check for VM name/UUID field
-                      NOK       ${Empty}          ${Target File}    NO              Running
+                      NOK       ${Empty}          ${TargetFile}    NO              Running
 
 Mandatory Check for Target file field
-                      NOK       ${VMName}         ${Empty}          NO              Paused
+                      NOK       ${VMName}         ${Empty}         NO              Paused
 
 Check with Invalid VM name / UUID
-                      NOK       Invalid           ${Target File}    NO              Paused
+                      NOK       Invalid           ${TargetFile}    NO              Paused
 
 *** Keywords ***
 Startup
@@ -39,19 +36,20 @@ Startup
     Connect AE
 
 Save KVM VM to File Template
-    [Arguments]    ${OK_NOK}    ${VMName}    ${Target File}
+    [Arguments]    ${OK_NOK}    ${VMName}    ${TargetFile}    ${Bypass_Cache}    ${Restore_State}
     [Documentation]    This test restore a VM as per specified parameter value
     ...    _Precondition :- To run this test suit Unix Agent is configured and running and atleast on VM should be there to delete
     ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
-    ...    -${VM Name}: Provide KVM VM name to be saved.
-    ...    -${Target File}: Specify VM state to be set after restoring.
+    ...    -${VMName}: Provide KVM VM name to be saved.
+    ...    -${TargetFile}: Specify VM state to be set after restoring.
     ...    -${Bypass_Cache}: Specify whether if you want to avoid file system cache while restoring.
     ...    -${Restore_State}: Specify VM state to be set after restoring..
-    ...    -${Timeout}: Specify waiting timeout for completion of saving. Use 0 for unlimited time. Effective only if execution is synchronous
     Generate String
     Init Action    ${_SAVE_KVM_VM_FROM_FILE_ACTION}
     Run Keyword If    '${VMName}' == 'Invalid'    Action Set    &UC4RB_KVM_VM_NAME#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_KVM_VM_NAME#    ${VMName}
+    Action Set    &UC4RB_KVM_TRG_FILE#    ${TargetFile}
+    Action Set    &UC4RB_KVM_SKIP_CACHE#    ${Bypass_Cache}
     Action Set    &UC4RB_KVM_RESTORE_STATE#    ${Restore_State}
     Set Overwrite Agent
     Action Execute
