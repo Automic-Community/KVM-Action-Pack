@@ -44,3 +44,6 @@ ${Source_File_Path3}    ADD_SOURCE_FILE3_PATH_HER
 #-------------Save KVM VM to file-------------------------
 ${TargetFile}     /home/vm_state2.xml
 ${VMName1}        Add_2nd_VMNAME_HERE
+#-------------Start KVM Network-------------------------
+${Network_To_Start}    ADD_NETWORK_NAME_TO_START
+${NetworkUUID_To_Start}    ADD_NETWORK_UUID_TO_START
