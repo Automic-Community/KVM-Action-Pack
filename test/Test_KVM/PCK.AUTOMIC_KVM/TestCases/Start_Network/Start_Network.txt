@@ -45,7 +45,7 @@ Start KVM Network Template
     ...    _Precondition :- To run this test suit Unix Agent is configured and running and atleast one network should be there to start
     ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
     ...    -${Network_or_UUID}: Provide name or UUID of Network you want to start.
-    ...    -${Fail_if_active}: Specify whether if you want to fail action if VM is already started. Default value is 'No'..
+    ...    -${Fail_if_active}: Specify whether user want to fail action if VM is already started. Default value is 'No'..
     Generate String
     Init Action    ${_START_NETWORK_ACTION}
     Run Keyword If    '${Network_or_UUID}' == 'Invalid'    Action Set    &UC4RB_KVM_NW_NAME_UUID#    ${Generated_Name}_${Time}    ELSE    Action Set
