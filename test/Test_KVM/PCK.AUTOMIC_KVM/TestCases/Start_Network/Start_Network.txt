@@ -40,7 +40,7 @@ Startup
     Connect AE
 
 Start KVM Network Template
-    [Arguments]    ${OK_NOK}    ${Network_or_UUID}    ${Fail_if_running}
+    [Arguments]    ${OK_NOK}    ${Network_or_UUID}    ${Fail_if_active}
     [Documentation]    This test start a Network as per specified parameter value
     ...    _Precondition :- To run this test suit Unix Agent is configured and running and atleast one network should be there to start
     ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
