@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
-<JOBS_UNIX AttrType="UNIX" name="PCK.AUTOMIC_KVM.PRV.JOB.SAVE_VM_TO_FILE@UNIX">
+<JOBS_UNIX AttrType="UNIX" name="PCK.AUTOMIC_KVM.PRV.JOBS.SAVE_VM_TO_FILE@UNIX">
 <XHEADER state="1">
 <Title>Save VM to File</Title>
 <ArchiveKey1/>
@@ -189,5 +189,8 @@ echo ""
 <POST_SCRIPT mode="1" replacementmode="1" state="1">
 <OSCRI/>
 </POST_SCRIPT>
+<DOCU_Docu state="1" type="text">
+<DOC/>
+</DOCU_Docu>
 </JOBS_UNIX>
 </uc-export>
