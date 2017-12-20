@@ -129,6 +129,8 @@
 
 :PRINT "Command Executed :: &UC4RB_CMD#"
 
+&UC4RB_CMD#
+
 ! Status messages
 : SET &UC4RB_LOGGING_INFO# = "******** SUSPEND VM ACTION EXECUTED SUCCESSFULLY ********"
 : SET &UC4RB_LOGGING_ERROR# = "******** SUSPEND VM ACTION FAILED ********"

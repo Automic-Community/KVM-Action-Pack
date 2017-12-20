@@ -298,7 +298,7 @@ Suspend a running VM. It is kept in memory but won't be scheduled anymore.
 (none)
 
 = Inputs =
-* VM Name or UUID	: Provide name or UUID of VM you want to stop. Eg: test-vm
+* VM Name or UUID	: Provide name or UUID of VM you want to suspend. Eg: test-vm
 
 
 = Behavior =
