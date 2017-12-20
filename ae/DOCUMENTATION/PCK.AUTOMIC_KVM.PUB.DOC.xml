@@ -68,7 +68,10 @@ Following actions are supported.
 * Action Description:  Gracefully shuts down a domain.
 
 * Action name:   PCK.AUTOMIC_KVM.PUB.ACTION.START_NETWORK
-* Action Description:  Starts an inactive, previously defined, virtual network.]]></DOC>
+* Action Description:  Starts an inactive, previously defined, virtual network.
+
+* Action name:   PCK.AUTOMIC_KVM.PUB.ACTION.RESUME_VM
+* Action Description:  Moves a VM out of the suspended state.]]></DOC>
 </DOCU_Docu>
 </DOCU>
 </uc-export>
