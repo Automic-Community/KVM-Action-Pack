@@ -47,3 +47,15 @@ ${VMName1}        Add_2nd_VMNAME_HERE
 #-------------Start KVM Network-------------------------
 ${Network_To_Start}    ADD_NETWORK_NAME_TO_START
 ${NetworkUUID_To_Start}    ADD_NETWORK_UUID_TO_START
+#-------------Suspend KVM VM-------------------------
+${VM_To_Suspend}    ADD_VM_TO_SUSPEND
+${UUID_To_Suspend}    ADD_UUID_TO_SUSPEND
+${Shutoff_VM}     ADD_SHUTOFF_VM
+#-----Resume KVM VM------------------------------------------------------------------------------------
+${VM_To_Resume}    ADD_NAME_OF_PAUSED_VM_HERE
+${UUID_To_Resume}    ADD_UUID_OF_PAUSED_VM_HERE
+${VM_Shutoff}     ADD_SHUTOFF_VM_NAME_HERE
+#-------------Stop KVM Network-------------------------
+${Network_To_Stop}    ADD_PERSISTENT_NETWORK_NAME_TO_STOP
+${NetworkUUID_To_Stop}    ADD__PERSISTENT_NETWORK_UUID_TO_STOP
+${Transient_Network}    ADD_TRANSIENT_NETWORK_NAME_TO_STOP
