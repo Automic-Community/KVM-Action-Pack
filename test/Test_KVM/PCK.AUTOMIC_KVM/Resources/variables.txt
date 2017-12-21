@@ -51,3 +51,7 @@ ${NetworkUUID_To_Start}    ADD_NETWORK_UUID_TO_START
 ${VM_To_Suspend}    ADD_VM_TO_SUSPEND
 ${UUID_To_Suspend}    ADD_UUID_TO_SUSPEND
 ${Shutoff_VM}     ADD_SHUTOFF_VM
+#-----Resume KVM VM------------------------------------------------------------------------------------
+${VM_To_Resume}    ADD_NAME_OF_PAUSED_VM_HERE
+${UUID_To_Resume}    ADD_UUID_OF_PAUSED_VM_HERE
+${VM_Shutoff}     ADD_SHUTOFF_VM_NAME_HERE
