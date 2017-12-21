@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
-<JOBS_UNIX AttrType="UNIX" name="PCK.AUTOMIC_KVM.PRV.JOB.STOP_VM@UNIX">
+<JOBS_UNIX AttrType="UNIX" name="PCK.AUTOMIC_KVM.PRV.JOB.SUSPEND_VM@UNIX">
 <XHEADER state="1">
-<Title>Stop VM</Title>
+<Title>Suspend VM</Title>
 <ArchiveKey1/>
 <ArchiveKey2/>
 <Active>1</Active>
@@ -115,57 +115,25 @@
 : SET &UC4RB_LOGGING_PARAMETER_VAL# = &UC4RB_KVM_VM_NAME_UUID#
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
 
-!Graceful
-: SET &UC4RB_LOGGING_PARAMETER# = "Graceful"
-: SET &UC4RB_LOGGING_PARAMETER_VAL# = &UC4RB_KVM_GRACEFUL#
-: INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
-
-!Fail if stopped
-: SET &UC4RB_LOGGING_PARAMETER# = "Fail if stopped"
-: SET &UC4RB_LOGGING_PARAMETER_VAL# = &UC4RB_KVM_FAIL_IF_STOPPED#
-: INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
 
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.HEADER.EXECUTION
 
 !Prepare Command
-: SET &UC4RB_CMD# = "virsh destroy"
+: SET &UC4RB_CMD# = "virsh suspend"
 
 !VM name or UUID
 : SET &UC4RB_ESCAPED_STRING# = &UC4RB_KVM_VM_NAME_UUID#
 : INC PCK.AUTOMIC_KVM.PUB.INCLUDE.ESCAPE_ARG_VALUE
 : SET &UC4RB_CMD# = STR_CAT(&UC4RB_CMD#, " &UC4RB_ESCAPED_STRING#")
 
-!Graceful
-: IF &UC4RB_KVM_GRACEFUL# = "YES"
-:   SET &UC4RB_CMD# = STR_CAT(&UC4RB_CMD#, " --graceful")
-: ENDIF
 
 :PRINT "Command Executed :: &UC4RB_CMD#"
 
+&UC4RB_CMD#
+
 ! Status messages
-: SET &UC4RB_LOGGING_INFO# = "******** STOP VM ACTION EXECUTED SUCCESSFULLY ********"
-: SET &UC4RB_LOGGING_ERROR# = "******** STOP VM ACTION FAILED ********"
-
-output=`&UC4RB_CMD# 2>&1`
-execcode=$?
-
-if [[ $output == *"Failed to destroy domain"* ]]
-then
-  if [[ &UC4RB_KVM_FAIL_IF_STOPPED# == "NO" ]]
-  then
-     echo "$output"
-:    INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.INFO
-     exit 0
-  fi
-fi
-
-echo "$output"
-
-if [ "$execcode" -ne "0" ]
-then
-:   INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.ERROR
-    exit $execcode
-fi
+: SET &UC4RB_LOGGING_INFO# = "******** SUSPEND VM ACTION EXECUTED SUCCESSFULLY ********"
+: SET &UC4RB_LOGGING_ERROR# = "******** SUSPEND VM ACTION FAILED ********"
 
 !------------------------------------------ Error Handling -----------------------------------------------------------------------------------------------------
 
@@ -181,5 +149,8 @@ fi
 <POST_SCRIPT mode="1" replacementmode="1" state="1">
 <OSCRI/>
 </POST_SCRIPT>
+<DOCU_Docu state="1" type="text">
+<DOC/>
+</DOCU_Docu>
 </JOBS_UNIX>
 </uc-export>
