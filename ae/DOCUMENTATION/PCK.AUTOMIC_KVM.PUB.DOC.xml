@@ -71,7 +71,10 @@ Following actions are supported.
 * Action Description:  Starts an inactive, previously defined, virtual network.
 
 * Action name:   PCK.AUTOMIC_KVM.PUB.ACTION.RESUME_VM
-* Action Description:  Moves a VM out of the suspended state.]]></DOC>
+* Action Description:  Moves a VM out of the suspended state.
+
+* Action name:   PCK.AUTOMIC_KVM.PUB.ACTION.SUSPEND_VM
+* Action Description:  Suspend a running VM.]]></DOC>
 </DOCU_Docu>
 </DOCU>
 </uc-export>
