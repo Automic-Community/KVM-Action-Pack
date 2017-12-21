@@ -302,7 +302,9 @@ Moves a VM out of the suspended state. This will allow a previously suspended do
 
 
 = Behavior =
-(none)
+* After VM is successfully resumed it will change state from paused to running.
+* If VM is already in resumed/running state then action won't fail.
+* User cannot resume shutoff VM, in that case action will fail.
 
 =Return Value=
 (none)
