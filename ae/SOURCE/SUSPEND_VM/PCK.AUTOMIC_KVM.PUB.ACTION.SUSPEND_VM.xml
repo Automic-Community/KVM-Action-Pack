@@ -302,7 +302,10 @@ Suspend a running VM. It is kept in memory but won't be scheduled anymore.
 
 
 = Behavior =
-(none)
+* After VM is successfully suspended it will change state from running to paused.
+* If VM is already in suspended/paused state then action won't fail. 
+* User cannot suspend shutoff VM, in that case action will fail.
+
 
 =Return Value=
 (none)
