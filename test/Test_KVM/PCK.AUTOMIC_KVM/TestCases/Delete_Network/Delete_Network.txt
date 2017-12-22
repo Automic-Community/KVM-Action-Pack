@@ -15,7 +15,7 @@ Resource          ../../Resources/actions.txt
 *** Test Cases ***    OK_NOK    Network_or_UUID                      Delete_if_active
 Delete Network with valid Persistent Network name which is Active and delete if active NO
                       [Tags]    main_scenarios
-                      NOK       ${Active_Network_To_Delete}          NO
+                      OK        ${Active_Network_To_Delete}          NO
 
 Delete Network with valid Persistent Network name which is Active and delete if active YES
                       [Tags]    main_scenarios
@@ -30,12 +30,6 @@ Invalid test for invalid Network Name to Delete Network
 
 Mandatory test for UUID/Network name required to Delete a network
                       NOK       ${Empty}                             NO
-
-Delete Network when Network is Transient Network and Active. and delete if active NO
-                      NOK       ${Transient_Network_Delete}          NO
-
-Delete Network when Network is Transient Network and Active. and delete if active YES
-                      OK        ${Transient_Network_Delete}          YES
 
 *** Keywords ***
 Startup
