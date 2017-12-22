@@ -31,6 +31,12 @@ Invalid test for invalid Network Name to Delete Network
 Mandatory test for UUID/Network name required to Delete a network
                       NOK       ${Empty}                             NO
 
+Delete Network when Network is Transient Network and Active. and delete if active NO
+                      OK        ${Transient_Network_Delete}          NO
+
+Delete Network when Network is Transient Network and Active. and delete if active YES
+                      OK        ${Transient_Network_Delete}          YES
+
 *** Keywords ***
 Startup
     Log    *******Start Test "DELETE KVM NETWORK"*******
