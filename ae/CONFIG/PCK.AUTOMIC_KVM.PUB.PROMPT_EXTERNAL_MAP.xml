@@ -54,6 +54,8 @@
 <row Name="PCK.AUTOMIC_KVM.PUB.ACTION.START_NETWORK/LOGIN#" Value="&amp;LOGIN#" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_KVM.PUB.ACTION.START_VM/AGENT#" Value="&amp;AGENT#" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_KVM.PUB.ACTION.START_VM/LOGIN#" Value="&amp;LOGIN#" Value1="" Value2="" Value3="" Value4=""/>
+<row Name="PCK.AUTOMIC_KVM.PUB.ACTION.STOP_NETWORK/AGENT#" Value="&amp;AGENT#" Value1="" Value2="" Value3="" Value4=""/>
+<row Name="PCK.AUTOMIC_KVM.PUB.ACTION.STOP_NETWORK/LOGIN#" Value="&amp;LOGIN#" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_KVM.PUB.ACTION.STOP_VM/AGENT#" Value="&amp;AGENT#" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_KVM.PUB.ACTION.STOP_VM/LOGIN#" Value="&amp;LOGIN#" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_KVM.PUB.ACTION.SUSPEND_VM/AGENT#" Value="&amp;AGENT#" Value1="" Value2="" Value3="" Value4=""/>
