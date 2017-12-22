@@ -55,3 +55,11 @@ ${Shutoff_VM}     ADD_SHUTOFF_VM
 ${VM_To_Resume}    ADD_NAME_OF_PAUSED_VM_HERE
 ${UUID_To_Resume}    ADD_UUID_OF_PAUSED_VM_HERE
 ${VM_Shutoff}     ADD_SHUTOFF_VM_NAME_HERE
+#-------------Stop KVM Network-------------------------
+${Network_To_Stop}    ADD_PERSISTENT_NETWORK_NAME_TO_STOP
+${NetworkUUID_To_Stop}    ADD__PERSISTENT_NETWORK_UUID_TO_STOP
+${Transient_Network}    ADD_TRANSIENT_NETWORK_NAME_TO_STOP
+#-------------Delete KVM Network-------------------------
+${Active_Network_To_Delete}    ADD_PERSISTENT_NETWORK_NAME_TO_DELETE
+${Inactive_NetworkUUID_To_Delete}    ADD__PERSISTENT_NETWORK_UUID_TO_DELETE
+${Transient_Network_Delete}    ADD_TRANSIENT_NETWORK_NAME_TO_DELETE
