@@ -144,9 +144,9 @@
 : PRINT "Remove Inactive Command Executed :: &UC4RB_CMD#"
 
 node_info=`&UC4RB_NETWORK_INFO_CMD#`
+: INC PCK.AUTOMIC_KVM.PUB.CHECK_COMMAND_STAUS
 echo "Provided Network &UC4RB_KVM_NW_NAME_UUID# info:"
 echo "${node_info}"
-: INC PCK.AUTOMIC_KVM.PUB.CHECK_COMMAND_STAUS
 transient=`echo "$node_info" | grep   Persistent:`
 : INC PCK.AUTOMIC_KVM.PUB.CHECK_COMMAND_STAUS
 
@@ -157,11 +157,11 @@ transient=`echo "$node_info" | grep   Persistent:`
    &UC4RB_INCATIVE_STATE_CMD#
   else
     active=`echo "$node_info" | grep   Active:`
-: INC PCK.AUTOMIC_KVM.PUB.CHECK_COMMAND_STAUS
+:   INC PCK.AUTOMIC_KVM.PUB.CHECK_COMMAND_STAUS
    if [[ $active =~ .*yes.* ]]
    then
      &UC4RB_INCATIVE_STATE_CMD#
-: INC PCK.AUTOMIC_KVM.PUB.CHECK_COMMAND_STAUS
+:    INC PCK.AUTOMIC_KVM.PUB.CHECK_COMMAND_STAUS
    fi
   &UC4RB_CMD#
   fi
