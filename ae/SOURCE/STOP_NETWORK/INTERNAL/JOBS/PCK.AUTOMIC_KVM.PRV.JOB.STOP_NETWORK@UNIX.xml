@@ -47,7 +47,7 @@
 <ShellScript>1</ShellScript>
 <Command>0</Command>
 <Priority>0</Priority>
-<Shell/>
+<Shell>-bash</Shell>
 <ShellOptions/>
 <Com/>
 </ATTR_UNIX>
@@ -113,7 +113,7 @@
 ! Status messages
 : SET &UC4RB_LOGGING_ERROR# = "******** STOP NETWORK ACTION FAILED ********"
 
-!VM Name or UUID
+! Network Name or UUID
 : SET &UC4RB_LOGGING_PARAMETER# = "Network Name or UUID"
 : SET &UC4RB_LOGGING_PARAMETER_VAL# = &UC4RB_KVM_NW_NAME_UUID#
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
@@ -124,27 +124,23 @@
 ! Prepare stop setwork command
 : SET &UC4RB_CMD# = "virsh net-destroy"
 
-!VM name or UUID
+! Network Name or UUID
 : SET &UC4RB_ESCAPED_STRING# = &UC4RB_KVM_NW_NAME_UUID#
 : INC PCK.AUTOMIC_KVM.PUB.INCLUDE.ESCAPE_ARG_VALUE
 : SET &UC4RB_CMD# = STR_CAT(&UC4RB_CMD#, " &UC4RB_ESCAPED_STRING#")
 
 ! Prepare command to check is network is inactive
-: SET &UC4RB_INACTIVE_CMD# = "virsh net-info &UC4RB_ESCAPED_STRING# | grep  Active:"
-: PRINT "Inactive Network Command Executed :: &UC4RB_INACTIVE_CMD#"
+: SET &UC4RB_NETWORK_NODE_CMD# = "virsh net-info &UC4RB_ESCAPED_STRING#"
+: PRINT "Get Network Node Command Executed :: &UC4RB_NETWORK_NODE_CMD#"
 : PRINT "Command Executed :: &UC4RB_CMD#"
 
-tmp=`&UC4RB_INACTIVE_CMD#`
-
-execcode=$?
-if [ $execcode -ne 0 ]
-then
-   echo ${tmp}
-:  INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.ERROR
-   exit $execcode
-fi
-
-if [[ $tmp =~ .*yes.* ]]
+node_info=`&UC4RB_NETWORK_NODE_CMD#`
+: INC PCK.AUTOMIC_KVM.PUB.CHECK_COMMAND_STAUS
+echo "Provided Network &UC4RB_KVM_NW_NAME_UUID# info:"
+echo "${node_info}"
+active=`echo "$node_info" | grep   Active:`
+: INC PCK.AUTOMIC_KVM.PUB.CHECK_COMMAND_STAUS
+if [[ $active =~ .*yes.* ]]
 then
    &UC4RB_CMD#
 else
