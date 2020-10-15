@@ -1,0 +1,59 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        Start_Network
+Default Tags
+Test Template     Start KVM Network Template
+Library           com.automic.robot.itpa.ItpaLibrary
+Library           String
+Library           DateTime
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
+*** Test Cases ***    OK_NOK    Network_or_UUID            Fail_if_active
+Start Network with valid Network name and default values
+                      [Tags]    main_scenarios
+                      OK        ${Network_To_Start}        NO
+
+Start Network with valid UUID
+                      [Tags]    main_scenarios
+                      OK        ${NetworkUUID_To_Start}    NO
+
+Invalid test for invalid Network Name to Start Network
+                      NOK       Invalid                    NO
+
+Mandatory test for UUID/Network name required to start network
+                      NOK       ${Empty}                   NO
+
+Start Network when Network already started and Fail if running is YES
+                      NOK       ${Network_To_Start}        YES
+
+Start Network when Network already started and Fail if running is NO
+                      OK        ${Network_To_Start}        NO
+
+*** Keywords ***
+Startup
+    Log    *******Start Test "START KVM NETWORK"*******
+    Log    *******Connect to AE*******
+    Connect AE
+
+Start KVM Network Template
+    [Arguments]    ${OK_NOK}    ${Network_or_UUID}    ${Fail_if_active}
+    [Documentation]    This test start a Network as per specified parameter value
+    ...    _Precondition :- To run this test suit Unix Agent is configured and running and atleast one network should be there to start
+    ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
+    ...    -${Network_or_UUID}: Provide name or UUID of Network you want to start.
+    ...    -${Fail_if_active}: Specify whether user want to fail action if VM is already started. Default value is 'No'..
+    Generate String
+    Init Action    ${_START_NETWORK_ACTION}
+    Run Keyword If    '${Network_or_UUID}' == 'Invalid'    Action Set    &UC4RB_KVM_NW_NAME_UUID#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_KVM_NW_NAME_UUID#    ${Network_or_UUID}
+    Action Set    &UC4RB_KVM_FAIL_IF_ACTIVE#    ${Fail_if_active}
+    Set Overwrite Agent
+    Action Execute
+    Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE IF    '${OK_NOK}' == 'NOK'    Assert Failure
+
+Teardown
+    Log    *******End Test "START KVM NETWORK"*******

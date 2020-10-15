@@ -1,0 +1,66 @@
+*** Settings ***
+Resource          ../../../Env/default.txt
+
+*** Variables ***
+#---- Promptset Fields ----------------------------------------------------------------------------    ----------
+#----List KVM VMs------------------------------------------------------------------------------------
+${Snapshot}       Without Snapshots
+${State}          Running
+${All}            All
+${StatePaused}    Paused
+#----Get VM Info------------------------------------------------------------------------------------
+${VMName}         ADD_VM_NAME_HERE
+#-----Clone KVM VM------------------------------------------------------------------------------------------------
+${Original_Guest}    ABC_SKU
+${UUID}           ADD_UUID_HERE
+#-----Reboot KVM VM----------------------------------------------------------------------------------------
+${Shutoff_VMName}    ADD_SHUTOFF_VM_HERE
+#-----Create KVM VM----------------------------------------------------------------------------------------
+${My_New_VM}      ADD_NEW_VM_NAME_HERE
+${Disk_Path}      ADD_DISK_PATH_HERE
+${Image_Location}    ADD_IMAGE_LOCATION_HERE
+#-----Create Network-------------------------------------------------------------------------------------
+${File_Path_Transient}    ADD_TRANSIENT_PATH
+${File_Path_Persistent}    ADD_PERSISTENT_PATH
+#-----Get KVM Network Info----------------------------------------------------------------------------------------
+${Network_Name}    default
+${Network_UUID}    ADD_NETWORK_UUID_HERE
+#-------------Start KVM VM-------------------------
+${VM_To_Start}    ADD_VM_TO_START
+${UUID_To_Start}    ADD_UUID_TO_START
+${Network_UUID}    ADD_NETWORK_UUID_HERE
+#-----Stop KVM VM------------------------------------------------------------------------------------
+${VM_To_Stop}     ADD_VM_NAME_TO_STOP
+${UUID_To_Stop}    ADD_UUID_NAME_TO_STOP
+#-----Restore KVM VM------------------------------------------------------------------------------------
+${Source_File_Path1}    ADD_SOURCE_FILE1_PATH_HERE
+${Source_File_Path2}    ADD_SOURCE_FILE2_PATH_HERE
+${Source_File_Path3}    ADD_SOURCE_FILE3_PATH_HERE
+#-----Shutdown KVM VM------------------------------------------------------------------------------------
+${VM_To_Shutdown}    ADD_VM_NAME_TO_SHUTDOWN_VM
+${UUID_To_Shutdown}    ADD_UUID_TO_SHUTDOWN_VM
+${VM_Already_Shutoff}    ADD_VM_NAME_ALREADY_SHUTOFF
+${Source_File_Path3}    ADD_SOURCE_FILE3_PATH_HER
+#-------------Save KVM VM to file-------------------------
+${TargetFile}     /home/vm_state2.xml
+${VMName1}        Add_2nd_VMNAME_HERE
+#-------------Start KVM Network-------------------------
+${Network_To_Start}    ADD_NETWORK_NAME_TO_START
+${NetworkUUID_To_Start}    ADD_NETWORK_UUID_TO_START
+#-------------Suspend KVM VM-------------------------
+${VM_To_Suspend}    ADD_VM_TO_SUSPEND
+${UUID_To_Suspend}    ADD_UUID_TO_SUSPEND
+${Shutoff_VM}     ADD_SHUTOFF_VM
+#-----Resume KVM VM------------------------------------------------------------------------------------
+${VM_To_Resume}    ADD_NAME_OF_PAUSED_VM_HERE
+${UUID_To_Resume}    ADD_UUID_OF_PAUSED_VM_HERE
+${VM_Shutoff}     ADD_SHUTOFF_VM_NAME_HERE
+#-------------Stop KVM Network-------------------------
+${Network_To_Stop}    ADD_PERSISTENT_NETWORK_NAME_TO_STOP
+${NetworkUUID_To_Stop}    ADD__PERSISTENT_NETWORK_UUID_TO_STOP
+${Transient_Network}    ADD_TRANSIENT_NETWORK_NAME_TO_STOP
+#-------------Delete KVM Network-------------------------
+${Active_Network_To_Delete}    ADD_PERSISTENT_NETWORK_NAME_TO_DELETE
+${Inactive_NetworkUUID_To_Delete}    ADD__PERSISTENT_NETWORK_UUID_TO_DELETE
+${Transient_Network_Delete}    ADD_TRANSIENT_NETWORK_NAME_TO_DELETE
+

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
+<DOCU name="PCK.AUTOMIC_KVM.PUB.DOC">
+<HEADER state="1">
+<Title>Package documentation</Title>
+<ArchiveKey1/>
+<ArchiveKey2/>
+<OH_SubType/>
+</HEADER>
+<DOCU_Docu state="1" type="text">
+<DOC><![CDATA[About the Package
+================================
+KVM (for Kernel-based Virtual Machine) is a full virtualization solution for Linux on x86 hardware containing virtualization extensions (Intel VT or AMD-V). It consists of a loadable kernel module, kvm.ko, that provides the core virtualization infrastructure and a processor specific module, kvm-intel.ko or kvm-amd.ko. Using KVM, one can run multiple virtual machines running unmodified Linux or Windows images. Each virtual machine has private virtualized hardware: a network card, disk, graphics adapter, etc.
+
+=Supported versions=
+QEMU emulator version 2.2.0
+=Setup=
+The Agent must be installed on KVM enabled machine.
+=Setup= 
+* API version and https port can be configured in this VARA based on your environment.
+=Common Inputs=
+(None)
+=Actions=
+Following actions are supported.
+
+* Action name:  PCK.AUTOMIC_KVM.PUB.ACTION.CLONE_VM
+* Action Description:  Clone a VM from an existing VM.
+
+* Action name: PCK.AUTOMIC_KVM.PUB.ACTION.LIST_VMS
+* Action Description: List VMs from an existing VM.
+
+* Action name: PCK.AUTOMIC_KVM.PUB.ACTION.DELETE_VM
+* Action Description: Delete VM from existing VM.
+
+* Action name:  PCK.AUTOMIC_KVM.PUB.ACTION.GET_VM_INFO
+* Action Description:  Retrieves VM information.
+
+* Action name:  PCK.AUTOMIC_KVM.PUB.ACTION.REBOOT_VM
+* Action Description:  Reboot VM from existing VMs.
+
+* Action name:  PCK.AUTOMIC_KVM.PUB.ACTION.CREATE_VM
+* Action Description:  Create a new VM.
+
+* Action name:   PCK.AUTOMIC_KVM.PUB.ACTION.RESET_VM
+* Action Description:  Reset a vm immediately without any guest shutdown.
+
+* Action name:   PCK.AUTOMIC_KVM.PUB.ACTION.START_VM
+* Action Description:  Start a guest domain, either from the last managedsave state, or via a fresh boot if no managedsave state is present.
+
+* Action name:   PCK.AUTOMIC_KVM.PUB.ACTION.CREATE_NETWORK
+* Action Description:  Creates a network, using settings from an XML file.
+
+* Action name:   PCK.AUTOMIC_KVM.PUB.ACTION.LIST_NETWORKS
+* Action Description: Lists the virtual networks libvirt is aware of, along with basic status and autostart information.
+
+* Action name:   PCK.AUTOMIC_KVM.PUB.ACTION.STOP_VM
+* Action Description: Stop a VM.
+
+* Action name:   PCK.AUTOMIC_KVM.PUB.ACTION.GET_NETWORK_INFO
+* Action Description:  Displays basic information for a virtual network.
+
+* Action name:   PCK.AUTOMIC_KVM.PUB.ACTION.SAVE_VM_TO_FILE
+* Action Description:  Saves a running domain ( RAM , but not disk state) to a state file.
+
+* Action name:   PCK.AUTOMIC_KVM.PUB.ACTION.RESTORE_VM_FROM_FILE
+* Action Description:  Restores a  VM (domain) from provided source file.
+
+* Action name:   PCK.AUTOMIC_KVM.PUB.ACTION.SHUTDOWN_VM
+* Action Description:  Gracefully shuts down a domain.
+
+* Action name:   PCK.AUTOMIC_KVM.PUB.ACTION.START_NETWORK
+* Action Description:  Starts an inactive, previously defined, virtual network.
+
+* Action name:   PCK.AUTOMIC_KVM.PUB.ACTION.RESUME_VM
+* Action Description:  Moves a VM out of the suspended state.
+
+* Action name:   PCK.AUTOMIC_KVM.PUB.ACTION.STOP_NETWORK
+* Action Description:  Stop an active virtual network.
+
+* Action name:   PCK.AUTOMIC_KVM.PUB.ACTION.SUSPEND_VM
+* Action Description:  Suspend a running VM.
+
+* Action name:   PCK.AUTOMIC_KVM.PUB.ACTION.DELETE_NETWORK
+* Action Description:  Removes an active\inactive virtual network.]]></DOC>
+</DOCU_Docu>
+</DOCU>
+</uc-export>
